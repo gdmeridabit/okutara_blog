@@ -61,37 +61,88 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            #outer {
+                width: 100%;
+                display: block;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+                min-height: 100vh;
+            }
+
+            .home-top-video:before {
+                content:"";
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 1;
+                background: linear-gradient(
+                    to right,
+                    rgba(0, 0, 0, 0.4),
+                    rgba(255, 255, 0, 0.1)
+                );
+            }
+
+            .home-top-video {
+                left: 0;
+                top: 0;
+                height: 100vh;
+                width: 100%;
+                overflow: hidden;
+                z-index: -1;
+            }
+
+            .home-text {
+                position: absolute;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                color: #fff;
+                z-index: 1;
+            }
+
+            .home-logo {
+                left: 50%;
+                top: 50%;
+            }
+
+            .home-close {
+                position: absolute;
+                left: 97%;
+                top: 5%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                color: #fff;
+                z-index: 1;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links home-text">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}" style="color: white">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}" style="color: white">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            <div class="content" id="outer">
+                <div class="home-top-video">
+                    <video autoplay loop muted width="100%">
+                        <source src="https://okutara.s3-ap-northeast-1.amazonaws.com/Okutara_main2.mp4" type="video/mp4" />
+                    </video>
+                    <div class="home-text home-logo">
+                        <img src="asset('img/myimage.png')" />
+                        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                    </div>
                 </div>
             </div>
         </div>
