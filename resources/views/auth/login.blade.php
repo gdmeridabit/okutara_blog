@@ -43,6 +43,7 @@
                     <button type="submit" class="btn btn-success">
                         @lang('auth.login')
                     </button>
+
                 </div>
             </div>
         </form>
