@@ -28,7 +28,6 @@ DB_PASSWORD=<PASSWORD>
 
 ````
 php artisan migrate:refresh --seed
-
 ````
 
 Run using your web server and happy coding!
