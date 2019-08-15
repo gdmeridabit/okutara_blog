@@ -20,7 +20,6 @@ class Posts extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('filename');
-            $table->string('post');
             $table->rememberToken();
             $table->timestamps();
         });
