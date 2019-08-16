@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Categories;
+use App\Posts;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -27,20 +29,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post');
+        $categories = Categories::all();
+        Log::debug($categories);
+        return view('post',['categories' => $categories]);
     }
 
     /**
-     * Post Creation
+     * Posts Creation
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function create(Request $request)
     {
+        Log::debug($request->input('categories'));
         $this->validateForm($request);
-        $post = new Post();
+        $post = new Posts();
         $user = Auth::user();
-
         $name = '';
         if ($files = $request->file('fileToUpload')) {
             $name = $request->username . date("Ymdhis") . '.' . $files->getClientOriginalExtension();
@@ -55,11 +59,12 @@ class PostController extends Controller
         if (!$result) {
             return back()->with('create_failed', 'Opps! something went wrong');
         } else {
-            Storage::disk('local')->putFileAs(
-                'public/files/',
-                $files,
-                $name
-            );
+            $post->categories()->attach($request->categories);
+//            Storage::disk('local')->putFileAs(
+//                'public/files/',
+//                $files,
+//                $name
+//            );
             return back()->with('create_success', 'Congratulations you successfully created your post!');
         }
     }
@@ -73,7 +78,7 @@ class PostController extends Controller
     public function validateForm(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:50|alpha_num',
+            'title' => 'required|max:50',
             'description' => 'required|max:500',
             'fileToUpload' => 'required|image|max:10000',
         ]);

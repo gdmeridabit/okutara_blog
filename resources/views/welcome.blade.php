@@ -124,7 +124,7 @@
     @if (Route::has('login'))
     <div class="top-right links home-text">
         @auth
-        <a href="{{ url('/home') }}">Home</a>
+        <a href="{{ url('/home') }}" style="color: white">Home</a>
         @else
         <a href="{{ route('login') }}" style="color: white">Login</a>
 
@@ -149,6 +149,20 @@
             </div>
         </div>
     </div>
+</div>
+<div class="container" style="margin: 0 30px">
+    @foreach ($posts as $data)
+    <div class="px-5 mt-3 justify-content-center">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-primary">{{ $data->title }}</h4>
+                <p>{{ $data->created_at }}</p>
+                <p class="card-text">{{ $data->description }}</p>
+                <footer class="blockquote-footer text-right"><cite>{{ $data->user->first_name }} {{ $data->user->last_name }}</cite></footer>
+            </div>
+        </div>
+    </div>
+    @endforeach
 </div>
 </body>
 </html>
