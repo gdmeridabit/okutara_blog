@@ -45,9 +45,9 @@
             </div>
             <div class="form-group">
                 <label for="url">Category</label><br/>
-                <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
-                <input type="checkbox" name="vehicle2" value="Car"> I have a car<br>
-                <input type="checkbox" name="vehicle3" value="Boat" checked> I have a boat<br>
+                @foreach ($categories as $data)
+                <input type="checkbox" name="categories[]" value="{{ $data->id }}"> {{ $data->name }}<br>
+                @endforeach
             </div>
             <div class="form-group">
                 <label for="description">Description</label><br/>

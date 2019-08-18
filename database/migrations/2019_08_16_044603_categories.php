@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Posts extends Migration
+class Categories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class Posts extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id',false,true);
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title');
-            $table->longText('description');
-            $table->string('filename');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class Posts extends Migration
      */
     public function down()
     {
-        Schema::drop('posts');
+        Schema::drop('categories');
     }
 }

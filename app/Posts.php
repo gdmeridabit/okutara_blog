@@ -3,7 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Posts extends Model
 {
     /**
      * The table associated with the model.
@@ -32,5 +32,13 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany('App\Likes');
+    }
+
+    /**
+     * Get the categories for the blog post.
+     */
+    public function categories()
+    {
+        return $this->belongsToMany('App\PostCategorize', 'post_categorize', 'post_id','category_id');
     }
 }
