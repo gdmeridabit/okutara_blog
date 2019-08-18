@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
-<body style="background: url('https://data.whicdn.com/images/127574201/original.jpg') center center no-repeat fixed; background-size: cover;">
+<body style="background: url('https://i.imgur.com/LmOHBYQ.jpg') center center no-repeat fixed; background-size: cover;">
     <div id="app">
         <main class="py-4">
             @yield('content')
