@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
+use App\PostCategorize;
 use App\Posts;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use function PHPSTORM_META\type;
 
 class PostController extends Controller
 {
@@ -30,7 +33,6 @@ class PostController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        Log::debug($categories);
         return view('post',['categories' => $categories]);
     }
 
@@ -59,12 +61,12 @@ class PostController extends Controller
         if (!$result) {
             return back()->with('create_failed', 'Opps! something went wrong');
         } else {
-            $post->categories()->attach($request->categories);
-//            Storage::disk('local')->putFileAs(
-//                'public/files/',
-//                $files,
-//                $name
-//            );
+            $post->categories()->sync($request->categories);
+            Storage::disk('local')->putFileAs(
+                'public/files/',
+                $files,
+                $name
+            );
             return back()->with('create_success', 'Congratulations you successfully created your post!');
         }
     }
@@ -84,5 +86,11 @@ class PostController extends Controller
         ]);
 
         return $validatedData;
+    }
+
+    public function list($id)
+    {
+       $category = Categories::where('id', $id)->get();
+        return view('post_list',['category' => $category]);
     }
 }

@@ -20,4 +20,8 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::get('/post', 'PostController@index')->name('post')->middleware('auth');
 
+Route::get('/category/{id}', 'PostController@list')->name('list')->middleware('auth');
+
 Route::post('/post/create', 'PostController@create')->middleware('auth');
+
+Route::get('/categories', 'CategoriesController@index')->name('categories')->middleware('auth');

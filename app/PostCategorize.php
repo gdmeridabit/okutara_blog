@@ -12,6 +12,16 @@ class PostCategorize extends Pivot
      * @var bool
      */
     public $incrementing = true;
-
-
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'post_categorize';
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
 }
