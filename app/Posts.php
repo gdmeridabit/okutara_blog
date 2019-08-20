@@ -39,6 +39,6 @@ class Posts extends Model
      */
     public function categories()
     {
-        return $this->belongsToMany('App\PostCategorize', 'post_categorize', 'post_id','category_id');
+        return $this->belongsToMany('App\Categories', 'post_categorize', 'post_id','category_id');
     }
 }

@@ -158,7 +158,6 @@
                 <h4 class="card-title text-primary">{{ $data->title }}</h4>
                 <p>{{ $data->created_at }}</p>
                 <p class="card-text">{{ $data->description }}</p>
-                <footer class="blockquote-footer text-right"><cite>{{ $data->user->first_name }} {{ $data->user->last_name }}</cite></footer>
             </div>
         </div>
     </div>
