@@ -4,6 +4,9 @@
 <div class="container">
   <div class="d-flex justify-content-center text-center">
     <div class="form-block-container">
+      <div class="text-left">
+        <a href="/"><i class="fas fa-arrow-left"></i>　<span>Go back to Home</span></a>
+      </div>
       <div class="form-block-logo">
         <img src="https://files.slack.com/files-pri/T6BRWAL7P-FLZ1T4HFH/logo1_black.png">
       </div>
