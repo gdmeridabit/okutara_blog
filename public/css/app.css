@@ -16473,7 +16473,7 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 5 Brands";
 }
 
-/* LOGIN */
+/* LOGIN & REGISTRATION PAGE */
 
 .form-block-container {
   position: relative;
@@ -16493,5 +16493,120 @@ readers do not read off random characters that represent icons */
 
 .form-block-logo img {
   width: 30%;
+}
+
+/* HOME PAGE */
+
+html,
+body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
+}
+
+#outer {
+  width: 100%;
+  display: block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.home-top-video:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(255, 255, 0, 0.1));
+}
+
+.home-top-video {
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.home-text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 10;
+}
+
+.home-logo {
+  left: 50%;
+  top: 50%;
+}
+
+.home-close {
+  position: absolute;
+  left: 97%;
+  top: 5%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 1;
+}
+
+/* NAVIGATION TOOLBAR */
+
+.navbar {
+  height: 85px;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px 20px !important;
 }
 
