@@ -39,10 +39,10 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
             <li>
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/"><i class="fas fa-home pr-2"></i> Home</a>
             </li>
             <li>
-              <a class="nav-link" href="{{ route('categories') }}">Categories</a>
+              <a class="nav-link" href="{{ route('categories') }}"><i class="fas fa-list-ul pr-2"></i> Categories</a>
             </li>
           </ul>
           <a class="navbar-brand" href="{{ url('/') }}">
@@ -62,11 +62,11 @@
             @endif
             @else
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('create') }}"><i class="fas fa-plus"></i></a>
+              <a class="nav-link" href="{{ route('create') }}"><i class="fas fa-pen-fancy pr-2"></i> Add New Post</a>
             </li>
             <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                Hello, {{ Auth::user()->name }}! <span class="caret"></span>
+              <a id="navbarDropdown" class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <strong>{{ Auth::user()->name }}</strong> <span class="caret"></span>
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
