@@ -16,12 +16,14 @@ Route::get('/', 'BaseController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
 
-Route::get('/post', 'PostController@index')->name('post')->middleware('auth');
+Route::get('/create-post', 'PostController@index')->name('create')->middleware('auth');
 
-Route::get('/category/{id}', 'PostController@list')->name('list')->middleware('auth');
+Route::post('/create', 'PostController@create')->middleware('auth');
 
-Route::post('/post/create', 'PostController@create')->middleware('auth');
+Route::get('/post/{id}', 'PostController@post')->name('post')->middleware('auth');
 
-Route::get('/categories', 'CategoriesController@index')->name('categories')->middleware('auth');
+Route::get('/categories', 'CategoriesController@index')->middleware('auth');
+
+Route::get('/category/{id}', 'CategoriesController@list')->middleware('auth');
