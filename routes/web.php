@@ -24,6 +24,6 @@ Route::post('/create', 'PostController@create')->middleware('auth');
 
 Route::get('/post/{id}', 'PostController@post')->name('post')->middleware('auth');
 
-Route::get('/categories', 'CategoriesController@index')->middleware('auth');
+Route::get('/categories', 'CategoriesController@index')->name('categories')->middleware('auth');
 
 Route::get('/category/{id}', 'CategoriesController@list')->middleware('auth');
