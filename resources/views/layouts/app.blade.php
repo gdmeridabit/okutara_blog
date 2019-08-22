@@ -42,6 +42,9 @@
               <a class="nav-link" href="/"><i class="fas fa-home pr-2"></i> Home</a>
             </li>
             <li>
+              <a class="nav-link" href="/"><i class="fas fa-info-circle pr-2"></i> About</a>
+            </li>
+            <li>
               <a class="nav-link" href="{{ route('categories') }}"><i class="fas fa-list-ul pr-2"></i> Categories</a>
             </li>
           </ul>
