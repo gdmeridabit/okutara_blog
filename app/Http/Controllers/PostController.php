@@ -72,6 +72,7 @@ class PostController extends Controller
             'title' => 'required|max:50',
             'description' => 'required|max:500',
             'fileToUpload' => 'required|file|max:1000000',
+//            'link' => 'regex:/^.+@.+$/i'
         ]);
 
         return $validatedData;
@@ -85,9 +86,15 @@ class PostController extends Controller
     public function post($id)
     {
         $post = Posts::find($id);
+        $like = null;
+        if(Auth::check()) {
+            $like = Likes::where('user_id', Auth::user()->id)->first();
+        }
+        $isLike = is_null($like) ? false : true;
+
         $file = $this->getImage($post);
         $type = $this->checkFileType($file);
-        return view('post',['post' => $post, 'file' => $file, 'type' => $type]);
+        return view('post',['post' => $post, 'file' => $file, 'type' => $type, 'isLiked' => $isLike]);
     }
 
     private function getImage($data) {
@@ -127,9 +134,11 @@ class PostController extends Controller
     {
         $post = Posts::find($id);
         Likes::create([
-            'user_id' => $post->user->id,
+            'user_id' => Auth::user()->id,
             'posts_id' => $post->id
         ]);
-        return back()->with('post', $post);
+        $like = Likes::where('user_id', Auth::user()->id)->get();
+        $isLike = empty($like) ? false : true;
+        return back()->with(['post' => $post, 'isLiked' => $isLike]);
     }
 }
