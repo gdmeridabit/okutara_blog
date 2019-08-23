@@ -49,6 +49,7 @@
                 <input type="checkbox" name="categories[]" value="{{ $data->id }}"> {{ $data->name }}<br>
                 @endforeach
             </div>
+            <!-- Create the editor container -->
             <div class="form-group">
                 <label for="description">Description</label><br/>
                 <textarea class="form-control" id="description" name="description" maxlength="500"></textarea>

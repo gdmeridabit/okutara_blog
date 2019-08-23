@@ -24,4 +24,12 @@ class User extends Authenticatable{
     protected $fillable = [
         'name', 'username', 'email', 'password',
     ];
+
+    /**
+     * Get the likes for the blog post.
+     */
+    public function likes()
+    {
+        return $this->hasMany('App\Likes');
+    }
 }

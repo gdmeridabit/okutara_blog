@@ -18,6 +18,8 @@ class Likes extends Model
      */
     protected $primaryKey = 'id';
 
+    protected $fillable = ['user_id', 'posts_id'];
+
     /**
      * Get the user that owns the post.
      */
@@ -26,4 +28,8 @@ class Likes extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function post()
+    {
+        return $this->belongsTo('App\Posts');
+    }
 }

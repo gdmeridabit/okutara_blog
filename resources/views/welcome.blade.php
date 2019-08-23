@@ -8,10 +8,6 @@
     </video>
     <div class="home-text home-logo">
       <img src="https://okutara.s3-ap-northeast-1.amazonaws.com/logo1_white.png"/>
-      <br/>
-      <a href="" style="z-index: 100; position: absolute; color:white">
-        <i class="fas fa-play"></i>
-      </a>
     </div>
   </div>
 </div>

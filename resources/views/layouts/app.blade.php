@@ -26,6 +26,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
+
 </head>
 <body>
   <div id="app">
