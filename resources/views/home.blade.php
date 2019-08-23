@@ -2,12 +2,14 @@
 
 @section('content')
 <div class="container dashboard-container">
-  <div class="mt-5">
+  <div class="mt-5 text-center">
     <h3>Hello, <span class="font-weight-bold text-success">{{ Auth::user()->name }}</span>!</h3>
+    <small>What are you writing about today?</small>
     <div class="row mt-3">
       <div class="col-sm-4">
-        <h5>ACCOUNT INFORMATION</h5>
         <div class="container dashboard-content">
+          <h5>ACCOUNT INFORMATION</h5>
+          <hr />
           <div class="row">
             <div class="col-sm-4 text-right font-weight-bold">
               Full Name
@@ -31,8 +33,12 @@
         </div>
       </div>
       <div class="col-sm-8">
-        <h5>BLOGS</h5>
         <div class="container dashboard-blogs">
+          <div style="padding: 20px">
+            <h5>BLOGS</h5>
+            <hr />
+          </div>
+          
           <div class="flex-column">
             <div class="d-flex dashboard">
               <a href="/" class="dashboard-link">
