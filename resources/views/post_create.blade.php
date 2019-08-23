@@ -33,7 +33,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="url">Upload image or video</label>
+                <label for="url">Upload image</label>
                 <input type="file" class="form-control-file" id="fileToUpload" name="fileToUpload">
                 <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of
                     image should

@@ -45,6 +45,7 @@ class PostController extends Controller
         $post->filename = $name;
         $post->description = $request->description;
         $post->user_id = $user->id;
+        $post->link = is_null($request->link) ? '' : $request->link;
         $result = $post->save();
 
         if (!$result) {
@@ -71,8 +72,8 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:50',
             'description' => 'required|max:500',
-            'fileToUpload' => 'required|file|max:1000000',
-//            'link' => 'regex:/^.+@.+$/i'
+            'fileToUpload' => 'required|file|image|max:100000',
+            'link' => 'nullable|regex:/\b(youtube)\b/i'
         ]);
 
         return $validatedData;
@@ -88,7 +89,9 @@ class PostController extends Controller
         $post = Posts::find($id);
         $like = null;
         if(Auth::check()) {
-            $like = Likes::where('user_id', Auth::user()->id)->first();
+            $like = Likes::where('user_id', Auth::user()->id)
+                ->where('posts_id', $id)
+                ->first();
         }
         $isLike = is_null($like) ? false : true;
 
@@ -137,7 +140,12 @@ class PostController extends Controller
             'user_id' => Auth::user()->id,
             'posts_id' => $post->id
         ]);
-        $like = Likes::where('user_id', Auth::user()->id)->get();
+        $like = null;
+        if(Auth::check()) {
+            $like = Likes::where('user_id', Auth::user()->id)
+                ->where('posts_id', $id)
+                ->first();
+        }
         $isLike = empty($like) ? false : true;
         return back()->with(['post' => $post, 'isLiked' => $isLike]);
     }
