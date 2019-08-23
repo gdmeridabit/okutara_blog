@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 class BaseController extends Controller
 {
     public function index() {
-        $posts = Posts::find(2);
+        $posts = Posts::find(1);
         return view('welcome',['posts' => $posts, 'image' => $this->getImage($posts)]);
     }
 
