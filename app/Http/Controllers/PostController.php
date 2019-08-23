@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
+use App\Likes;
 use App\Posts;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
@@ -12,15 +13,6 @@ use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -40,7 +32,7 @@ class PostController extends Controller
      */
     public function create(Request $request)
     {
-        Log::debug($request->input('categories'));
+        Log::debug($request->description);
         $this->validateForm($request);
         $post = new Posts();
         $user = Auth::user();
@@ -79,7 +71,7 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:50',
             'description' => 'required|max:500',
-            'fileToUpload' => 'required|file|max:10000',
+            'fileToUpload' => 'required|file|max:1000000',
         ]);
 
         return $validatedData;
@@ -93,13 +85,51 @@ class PostController extends Controller
     public function post($id)
     {
         $post = Posts::find($id);
-        return view('post',['post' => $post, 'image' => $this->getImage($post)]);
+        $file = $this->getImage($post);
+        $type = $this->checkFileType($file);
+        return view('post',['post' => $post, 'file' => $file, 'type' => $type]);
     }
 
     private function getImage($data) {
-        if($data->filename != null) {
-            $image = asset('storage/files/' . $data->filename);
+        try {
+            if($data->filename != null) {
+                $image = asset('storage/files/' . $data->filename);
+            }
+            Log::debug($image);
+            Log::debug(pathinfo($image, PATHINFO_EXTENSION));
+            return $image;
+        } catch (\Exception $e) {
+            abort(404);
         }
-        return $image;
+    }
+
+    private function checkFileType($path) {
+        $ext = (pathinfo($path, PATHINFO_EXTENSION));
+        switch ($ext) {
+            case "mov": case "mp4":
+                return "vid";
+                break;
+            case "jpg": case "png": case "jpeg":
+                return "img";
+                break;
+            default:
+                return "invalid";
+        }
+    }
+
+
+    /**
+     * Like
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function like($id)
+    {
+        $post = Posts::find($id);
+        Likes::create([
+            'user_id' => $post->user->id,
+            'posts_id' => $post->id
+        ]);
+        return back()->with('post', $post);
     }
 }

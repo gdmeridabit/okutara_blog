@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container my-5">
     <div class="row justify-content-center align-content-center">
         <div class="flex-column">
             <div class="d-flex">
-                <img src="{{ $image }}" width="100%">
+                @if($type == 'img')
+                <img src="{{ $file }}" width="100%">
+                @elseif($type == 'vid')
+                <video autoplay loop width="100%" controls>
+                    <source src="{{ $file }}" type="video/mp4"/>
+                </video>
+                @endif
             </div>
             <div class="d-flex">
                 <h1>{{ $post->title }}</h1>
@@ -16,6 +22,13 @@
             <div class="d-flex">
                 <h5>{{ $post->description }}</h5>
             </div>
+
+            <div class="d-flex">
+                <span class="mr-1">{{ count($post->likes) }}</span>
+                <a href="/like/{{ $post->id }}">Like</a>
+
+            </div>
+
         </div>
     </div>
 </div>

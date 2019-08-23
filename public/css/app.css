@@ -16473,8 +16473,6 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 5 Brands";
 }
 
-/* LOGIN & REGISTRATION PAGE */
-
 .form-block-container {
   position: relative;
   margin: 100px auto 0;
@@ -16495,11 +16493,9 @@ readers do not read off random characters that represent icons */
   width: 30%;
 }
 
-/* HOME PAGE */
-
 html,
 body {
-  background-color: #fff;
+  background-color: #f7f7f7;
   color: #636b6f;
   font-family: "Nunito", sans-serif;
   font-weight: 200;
@@ -16608,5 +16604,11 @@ body {
 .nav-link {
   display: block;
   padding: 10px 20px !important;
+}
+
+.blog-container {
+  background: #fff;
+  width: 70vw;
+  box-shadow: 3px 7px 9px -3px rgba(0, 0, 0, 0.55);
 }
 
