@@ -4,7 +4,9 @@
 <div class="container my-5">
     <div class="row justify-content-center align-content-center">
         <div class="flex-column">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/uYfuWKjtDuU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uYfuWKjtDuU" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             <div class="d-flex">
                 @if($type == 'img')
                 <img src="{{ $file }}" width="100%">
@@ -23,13 +25,16 @@
             <div class="d-flex">
                 <h5>{{ $post->description }}</h5>
             </div>
-
+            @if(Auth::check())
             <div class="d-flex">
                 <span class="mr-1">{{ count($post->likes) }}</span>
-                <a href="/like/{{ $post->id }}">Like</a>
-
+                @if(!$isLiked)
+                    <a href="/like/{{ $post->id }}">Like</a>
+                @else
+                    <span>Liked</span>
+                @endif
             </div>
-
+            @endif
         </div>
     </div>
 </div>

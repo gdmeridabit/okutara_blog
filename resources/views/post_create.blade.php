@@ -44,6 +44,14 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="url">Or you can also add link from youtube</label>
+                <input type="text" class="form-control" id="link" name="link"
+                       placeholder="Please enter url link here">
+                @error('link')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="url">Category</label><br/>
                 @foreach ($categories as $data)
                 <input type="checkbox" name="categories[]" value="{{ $data->id }}"> {{ $data->name }}<br>
