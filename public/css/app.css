@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -16473,6 +16473,24 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 5 Brands";
 }
 
+html,
+body {
+  background-color: #EBECF0;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  margin: 0;
+}
+
+small,
+.small {
+  font-size: 75%;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .form-block-container {
   position: relative;
   margin: 100px auto 0;
@@ -16491,16 +16509,6 @@ readers do not read off random characters that represent icons */
 
 .form-block-logo img {
   width: 30%;
-}
-
-html,
-body {
-  background-color: #f7f7f7;
-  color: #636b6f;
-  font-family: "Nunito", sans-serif;
-  font-weight: 200;
-  height: 100vh;
-  margin: 0;
 }
 
 .full-height {
@@ -16599,6 +16607,7 @@ body {
 
 .navbar {
   height: 85px;
+  font-weight: 400;
 }
 
 .nav-link {
@@ -16610,5 +16619,39 @@ body {
   background: #fff;
   width: 70vw;
   box-shadow: 3px 7px 9px -3px rgba(0, 0, 0, 0.55);
+}
+
+.dashboard a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.dashboard-container {
+  width: 70vw;
+}
+
+.dashboard-content {
+  background: #fff;
+  padding: 15px;
+  margin: 15px auto;
+  border-radius: 5px;
+}
+
+.dashboard-blogs {
+  background: #fff;
+  margin: 15px auto;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.dashboard-link {
+  display: block;
+  width: 100%;
+  padding: 25px;
+  color: #000;
+}
+
+.dashboard-likes {
+  font-size: 12px;
 }
 
