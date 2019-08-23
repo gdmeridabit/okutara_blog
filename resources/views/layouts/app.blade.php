@@ -30,7 +30,7 @@
 </head>
 <body>
   <div id="app">
-    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
@@ -41,6 +41,9 @@
           <ul class="navbar-nav mr-auto">
             <li>
               <a class="nav-link" href="/"><i class="fas fa-home pr-2"></i> Home</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/"><i class="fas fa-info-circle pr-2"></i> About</a>
             </li>
             <li>
               <a class="nav-link" href="{{ route('categories') }}"><i class="fas fa-list-ul pr-2"></i> Categories</a>
