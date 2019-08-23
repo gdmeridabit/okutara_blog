@@ -12,7 +12,7 @@
   </div>
 </div>
 </div>
-@if(isset($post))
+@if(!$posts->is_null)
 <div class="container">
     <div class="px-5 mt-3 justify-content-center text-center">
     <h1>Featured Article</h1>
