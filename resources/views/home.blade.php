@@ -2,9 +2,11 @@
 
 @section('content')
 <div class="container dashboard-container">
-  <div class="mt-5 text-center">
-    <h3>Hello, <span class="font-weight-bold text-success">{{ Auth::user()->name }}</span>!</h3>
-    <small>What are you writing about today?</small>
+  <div class="mt-5">
+    <div class="text-center">
+      <h3>Hello, <span class="font-weight-bold text-success">{{ Auth::user()->name }}</span>!</h3>
+      <small>What are you writing about today?</small>
+    </div>
     <div class="row mt-3">
       <div class="col-sm-4">
         <div class="container dashboard-content">
