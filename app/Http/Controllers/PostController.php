@@ -113,6 +113,20 @@ class PostController extends Controller
         }
     }
 
+    private function checkFileType($path) {
+        $ext = (pathinfo($path, PATHINFO_EXTENSION));
+        switch ($ext) {
+            case "mov": case "mp4":
+            return "vid";
+            break;
+            case "jpg": case "png": case "jpeg":
+            return "img";
+            break;
+            default:
+                return "invalid";
+        }
+    }
+    
     /**
      * Like
      *
