@@ -25,14 +25,14 @@
 	<div class="d-flex flex-column justify-content-center">
 		<form action="/create" enctype="multipart/form-data" method="POST">
 		@csrf
-		<div class="form-group">
+		<div class="form-group blog-form">
 			<input type="text" class="form-control " id="title" name="title"
 				placeholder="Enter a catchy blog title here!">
 			@error('title')
 			<span class="text-danger">{{ $message }}</span>
 			@enderror
 		</div>
-		<div class="form-group">
+		<div class="form-group blog-form">
 			<div class="row">
 			<div class="col-sm-4">
 				<label class="h5" for="url">Upload image or video</label>
@@ -59,7 +59,7 @@
 			</div>		
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group blog-form">
 			<label class="h5" for="url">Category</label><br/>
 			<div class="row justify-content-center">
 			@foreach ($categories as $data)
@@ -70,7 +70,7 @@
 			</div>
 		</div>
 		<!-- Create the editor container -->
-		<div class="form-group">
+		<div class="form-group blog-form">
 			<label class="h5" for="description">Description</label><br/>
 			<textarea class="form-control" id="description" name="description" maxlength="500"></textarea>
 			<small class="form-text text-muted">Write a short description about your post</small>

@@ -16638,14 +16638,10 @@ small,
   padding: 10px 20px;
 }
 
-.blog-container {
-  width: 70vw;
-}
-
 .blog-content {
   background: #fff;
   padding: 30px;
-  margin: 15px auto;
+  margin-top: 15% !important;
   border-radius: 5px;
 }
 
@@ -16654,6 +16650,10 @@ small,
   height: 50vh;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.blog-form {
+  margin: 25px 0;
 }
 
 .categories-container {
