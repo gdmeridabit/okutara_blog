@@ -16647,6 +16647,11 @@ small,
   padding: 5px !important;
 }
 
+.list:hover {
+  box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+  transition: all 200ms ease-in;
+}
+
 .dashboard a:hover {
   text-decoration: none;
   color: #000;
