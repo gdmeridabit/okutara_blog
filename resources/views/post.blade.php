@@ -5,7 +5,7 @@
 	<img src="{{ $file }}" class="blog-main" />
 </div>
 <div class="container">
-	<div class="blog-content mt-5">
+	<div class="blog-post mt-5">
 		<div class="d-flex">
 			<h2 class="font-weight-bold">{{ $post->title }}</h2>
 		</div>
