@@ -24,7 +24,7 @@ Route::post('/create', 'PostController@create')->middleware('auth');
 
 Route::get('/post/update/{id}', 'PostController@updateIndex')->middleware('auth');
 
-Route::put('/post/updated/{id}', 'PostController@update')->middleware('auth');
+Route::put('/post/updated', 'PostController@update')->middleware('auth');
 
 Route::get('/post/{id}', 'PostController@post')->name('post');
 

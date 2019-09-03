@@ -23,8 +23,11 @@
 	</div>
 	@endif
 	<div class="d-flex flex-column justify-content-center">
-		<form action="{{'/post/updated/' . $post->id}}" enctype="multipart/form-data" method="PUT">
+		<form action="/post/updated/" enctype="multipart/form-data" method="POST">
 		@csrf
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input name="id" type="hidden" value="{{$post->id}}">
 		<div class="form-group">
 			<input type="text" class="form-control " id="title" name="title"
 				placeholder="Enter a catchy blog title here!" value="{{ $post->title }}">

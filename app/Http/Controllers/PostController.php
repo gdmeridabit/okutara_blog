@@ -22,7 +22,7 @@ class PostController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        return view('post_create',['categories' => $categories]);
+        return view('post_create', ['categories' => $categories]);
     }
 
     /**
@@ -88,7 +88,7 @@ class PostController extends Controller
     {
         $post = Posts::find($id);
         $like = null;
-        if(Auth::check()) {
+        if (Auth::check()) {
             $like = Likes::where('user_id', Auth::user()->id)
                 ->where('posts_id', $id)
                 ->first();
@@ -97,12 +97,13 @@ class PostController extends Controller
 
         $file = $this->getImage($post);
         $type = $this->checkFileType($file);
-        return view('post',['post' => $post, 'file' => $file, 'type' => $type, 'isLiked' => $isLike]);
+        return view('post', ['post' => $post, 'file' => $file, 'type' => $type, 'isLiked' => $isLike]);
     }
 
-    private function getImage($data) {
+    private function getImage($data)
+    {
         try {
-            if($data->filename != null) {
+            if ($data->filename != null) {
                 $image = asset('storage/files/' . $data->filename);
             }
             Log::debug($image);
@@ -113,20 +114,24 @@ class PostController extends Controller
         }
     }
 
-    private function checkFileType($path) {
+    private function checkFileType($path)
+    {
         $ext = (pathinfo($path, PATHINFO_EXTENSION));
         switch ($ext) {
-            case "mov": case "mp4":
-            return "vid";
-            break;
-            case "jpg": case "png": case "jpeg":
-            return "img";
-            break;
+            case "mov":
+            case "mp4":
+                return "vid";
+                break;
+            case "jpg":
+            case "png":
+            case "jpeg":
+                return "img";
+                break;
             default:
                 return "invalid";
         }
     }
-    
+
     /**
      * Like
      *
@@ -140,7 +145,7 @@ class PostController extends Controller
             'posts_id' => $post->id
         ]);
         $like = null;
-        if(Auth::check()) {
+        if (Auth::check()) {
             $like = Likes::where('user_id', Auth::user()->id)
                 ->where('posts_id', $id)
                 ->first();
@@ -149,11 +154,17 @@ class PostController extends Controller
         return back()->with(['post' => $post, 'isLiked' => $isLike]);
     }
 
-    public function updateIndex($id) {
-        $post = Posts::find($id);
-        $categories = Categories::all();
-        Log::debug($post->categories);
-        return view('post_update', ['post' => $post, 'categories' => $categories]);
+    public function updateIndex($id)
+    {
+        try {
+            $post = Posts::find($id);
+            $categories = Categories::all();
+            Log::debug($post->categories);
+            return view('post_update', ['post' => $post, 'categories' => $categories]);
+        } catch (\Exception $e) {
+            abort(404);
+        }
+
     }
 
     /**
@@ -161,11 +172,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
-        Log::debug($request->description);
         $this->validateForm($request);
-        $post = Posts::find($id);
+        $post = Posts::find($request->id);
+        $file = $post->filename;
         $user = Auth::user();
         $name = '';
         if ($files = $request->file('fileToUpload')) {
@@ -173,7 +184,7 @@ class PostController extends Controller
         }
 
         $post->title = $request->title;
-        $post->filename = $name;
+        $post->filename = $file === $name ? $file : $name;
         $post->description = $request->description;
         $post->user_id = $user->id;
         $post->link = is_null($request->link) ? '' : $request->link;
@@ -182,6 +193,9 @@ class PostController extends Controller
         if (!$result) {
             return back()->with('create_failed', 'Opps! something went wrong');
         } else {
+            if ($file != $name) {
+                Storage::delete($file);
+            }
             $post->categories()->sync($request->categories);
             Storage::disk('local')->putFileAs(
                 'public/files/',
