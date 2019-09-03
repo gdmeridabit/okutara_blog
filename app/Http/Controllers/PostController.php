@@ -113,21 +113,6 @@ class PostController extends Controller
         }
     }
 
-    private function checkFileType($path) {
-        $ext = (pathinfo($path, PATHINFO_EXTENSION));
-        switch ($ext) {
-            case "mov": case "mp4":
-                return "vid";
-                break;
-            case "jpg": case "png": case "jpeg":
-                return "img";
-                break;
-            default:
-                return "invalid";
-        }
-    }
-
-
     /**
      * Like
      *
@@ -148,5 +133,48 @@ class PostController extends Controller
         }
         $isLike = empty($like) ? false : true;
         return back()->with(['post' => $post, 'isLiked' => $isLike]);
+    }
+
+    public function updateIndex($id) {
+        $post = Posts::find($id);
+        $categories = Categories::all();
+        Log::debug($post->categories);
+        return view('post_update', ['post' => $post, 'categories' => $categories]);
+    }
+
+    /**
+     * Posts Creation
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function update($id, Request $request)
+    {
+        Log::debug($request->description);
+        $this->validateForm($request);
+        $post = Posts::find($id);
+        $user = Auth::user();
+        $name = '';
+        if ($files = $request->file('fileToUpload')) {
+            $name = $request->username . date("Ymdhis") . '.' . $files->getClientOriginalExtension();
+        }
+
+        $post->title = $request->title;
+        $post->filename = $name;
+        $post->description = $request->description;
+        $post->user_id = $user->id;
+        $post->link = is_null($request->link) ? '' : $request->link;
+        $result = $post->save();
+
+        if (!$result) {
+            return back()->with('create_failed', 'Opps! something went wrong');
+        } else {
+            $post->categories()->sync($request->categories);
+            Storage::disk('local')->putFileAs(
+                'public/files/',
+                $files,
+                $name
+            );
+            return back()->with('create_success', 'Congratulations you successfully updated your post!');
+        }
     }
 }
