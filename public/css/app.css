@@ -16656,8 +16656,8 @@ small,
   margin: 25px 0;
 }
 
-.categories-container {
-  width: 70vw;
+.categories-content {
+  margin-top: 15% !important;
 }
 
 .categories-img {
