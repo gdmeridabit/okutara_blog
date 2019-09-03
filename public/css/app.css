@@ -16686,7 +16686,9 @@ small,
 }
 
 .dashboard-container {
-  width: 70vw;
+  margin-top: 10% !important;
+  width: 80%;
+  margin: auto;
 }
 
 .dashboard-content {
@@ -16712,5 +16714,11 @@ small,
 
 .dashboard-likes {
   font-size: 12px;
+}
+
+.dashboard-actions {
+  position: absolute;
+  top: 0;
+  right: 25px;
 }
 
