@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row" >
         @foreach($category as $data)
             @foreach($data->posts as $post)
             <div class="card ml-2 mb-2" >

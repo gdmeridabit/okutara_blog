@@ -1,10 +1,12 @@
 <?php
 namespace App;
 
+use App\Shareable;
 use Illuminate\Database\Eloquent\Model;
 
 class Posts extends Model
 {
+    use Shareable;
     /**
      * The table associated with the model.
      *
@@ -40,5 +42,26 @@ class Posts extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Categories', 'post_categorize', 'post_id','category_id');
+    }
+
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($post) {
+            $post->likes()->delete();
+            $post->categories()->sync([]);
+        });
+    }
+
+    protected $shareOptions = [
+        'columns' => [
+            'title' => 'database_title_column'
+        ],
+        'url' => 'url'
+    ];
+
+    public function getUrlAttribute()
+    {
+        return url()->full();
     }
 }

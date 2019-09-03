@@ -29,3 +29,5 @@ Route::get('/categories', 'CategoriesController@index')->name('categories');
 Route::get('/category/{id}', 'CategoriesController@list');
 
 Route::get('/like/{id}', 'PostController@like')->middleware('auth');
+
+Route::get('/dashboard/{id}', 'HomeController@deletePost')->middleware('auth');
