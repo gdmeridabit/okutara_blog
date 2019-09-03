@@ -7,7 +7,7 @@
     <small>What do you want to read about?</small>
   </div>
   <div class="row">
-	@foreach($categorie $data)
+	@foreach($categories as $data)
 	<div class="col-3 categories-card">
 	  <a href="/category/{{ $data->id }}">
 		<div class="card bg-dark border-light text-white">
