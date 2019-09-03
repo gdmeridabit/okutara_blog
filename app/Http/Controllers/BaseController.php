@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Log;
 class BaseController extends Controller
 {
     public function index() {
-        Log::debug(Posts::withCount('likes')->take(1)->get());
-        $posts = Posts::withCount('likes')->take(5)->get();
-        return view('welcome',['posts' => $posts[0], 'image' => $this->getImage($posts)]);
+        $posts = Posts::find(1);
+        return view('welcome', ['posts' => $posts, 'image' => $this->getImage($posts)]);
     }
 
     private function getImage($data) {

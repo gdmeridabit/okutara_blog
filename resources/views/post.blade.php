@@ -37,6 +37,12 @@
             @else
                 <span class="mr-1">{{ count($post->likes) }} Likes</span>
             @endif
+            <a href="{{ $post->getShareUrl('facebook') }}" target="_blank" class="h4">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="{{ $post->getShareUrl('twitter') }}" target="_blank" class="h4">
+                <i class="fab fa-twitter"></i>
+            </a>
         </div>
     </div>
 </div>
