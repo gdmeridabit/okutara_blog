@@ -3,7 +3,7 @@
     background: #fff;
     padding: 30px;
     margin-top: 15% !important;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   &-post{
     background: #fff;
@@ -19,6 +19,34 @@
   &-form{
     margin: 25px 0;
   }
+  &-create {
+    &__title {
+      font-size: 40px !important;
+      font-weight: 300;
+    }
+    &__label {
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 16px !important;
+    }
+    &__publish {
+      background: linear-gradient(90deg, rgb(197, 189, 92) 0%, rgba(147,193,120,1) 100%);
+      border-radius: 25px;
+      padding: 10px 25px;
+      height: 55px;
+      width: 200px;
+      border: none;
+      font-size: 20px !important;
+      color: #fff;
+      box-shadow: 2px 3px 47px -15px rgba(0,0,0,0.75);
+    }
+  }
+}
+
+.blog-create__publish:hover {
+  box-shadow: 2px 3px 76px -15px rgba(0,0,0,0.75);
+  transition: all 0.5s ease;
+  color: #fff;
 }
 
 .categories{
