@@ -81,7 +81,7 @@
                                         <p class="text-secondary text-truncate">
                                             {{ $post->description }}
                                         </p>
-                                        <button class="btn btn-outline-success" href="/post/{{ $post->id }}">Read More</button>
+                                        <a class="btn btn-outline-success" href="/post/{{ $post->id }}">Read More</a>
                                         <i class="fas fa-thumbs-up ml-2 mr-1"></i> {{ count($post->likes) }}
                                     </div>
                                 </div>
