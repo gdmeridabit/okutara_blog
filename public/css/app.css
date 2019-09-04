@@ -16604,6 +16604,12 @@ small,
   z-index: 1;
 }
 
+.featured-title {
+  font-size: 50px !important;
+  border-bottom: 1px solid #000;
+  padding: 30px 0;
+}
+
 .navbar {
   height: 95px;
   font-weight: 400;
