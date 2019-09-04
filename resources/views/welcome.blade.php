@@ -13,26 +13,25 @@
 </div>
 </div>
 @if(isset($posts))
-<div class="container">
-    <div class="px-5 mt-3 justify-content-center text-center">
-    <h1>Featured Article</h1>
-        @foreach($posts as $item)
-        <div class="card">
-        <div class="row">
-            <div class="col-6">
-            <img src="{{asset('storage/files/'. $item->filename)}}" width="50%">
+<div class="justify-content-center text-center">
+<h1>Featured Article</h1>
+    @foreach($posts as $item)
+    <div class="card" style="">
+    <div class="row" style="height: 200px; width: 100%; object-fit: cover; background-position: left; background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 1) 290px), url({{asset('storage/files/'. $item->filename)}}) center center no-repeat; background-size: cover;">
+        <!-- <div class="col-6">
+        <img src="{{asset('storage/files/'. $item->filename)}}" width="50%" class="featured-container">
+        </div> -->
+        <div class="col-md-6 offset-md-6">
+            <div class="card-body text-right">
+                <h4 class="card-title text-primary">{{ $item->title }}</h4>
+                <p>{{ $item->created_at }}</p>
+                <p class="card-text">{{ $item->description }}</p>
             </div>
-            <div class="col-6">
-                <div class="card-body">
-                    <h4 class="card-title text-primary">{{ $item->title }}</h4>
-                    <p>{{ $item->created_at }}</p>
-                    <p class="card-text">{{ $item->description }}</p>
-                </div>
-            </div>
-        </div>   
         </div>
-        @endforeach
+    </div>   
     </div>
+    @endforeach
 </div>
+
 @endif
 @endsection

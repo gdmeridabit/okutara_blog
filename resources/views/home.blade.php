@@ -88,8 +88,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <a class="dropdown-item" type="button" href="{{ url('/post/update/' . $post->id) }}" >Update</a>
-                    <a class="dropdown-item" type="button" href="{{ url('/dashboard/' . $post->id) }}" >Delete</a> -->
                     @endforeach
                     @endif
                 </div>
