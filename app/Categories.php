@@ -24,7 +24,7 @@ class Categories extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name', 'icon', 'color'
     ];
     /**
      * The users that belong to the role.
