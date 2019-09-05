@@ -17,3 +17,21 @@
     }
   }
 }
+
+.btn-submit {
+  color: #fff;
+  background-color: #38c172;
+  background: linear-gradient(90deg, rgba(147,187,129,1) 0%, rgba(115,194,69,1) 100%);
+  border-radius: 20px;
+  height: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.btn-submit:hover {
+  transition: all 0.5s ease;
+  box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}

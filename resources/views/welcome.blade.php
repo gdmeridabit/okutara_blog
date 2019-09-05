@@ -29,7 +29,6 @@
         <div class="card-body text-right">
             <h4 class="card-title text-primary">{{ $item->title }}</h4>
             <p>{{ $item->created_at }}</p>
-            <p class="card-text">{{ $item->description }}</p>
         </div>
     </div>
 </div>   

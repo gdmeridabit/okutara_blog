@@ -9,17 +9,22 @@
 		</div>
 		<div class="row">
 		@foreach($categories as $data)
-		<div class="col-3 categories-card">
+		<div class="col-4 categories-card">
 			<a href="/category/{{ $data->id }}">
-			<div class="card bg-dark border-light text-white">
-				<img class="card-img categories-img" src="https://i.imgur.com/Od5sxri.jpg" alt="category">
-				<div class="card-img-overlay">
-				<div class="row justify-content-center align-content-center px-3"
-					style="height: 100%">
-					<h3>{{$data->name}}</h3>
+				<div class="card categories-link">
+					<div class="card-body text-center py-5 my-4"
+						style="height: 200px;">
+						<div class="row justify-content-center align-content-center px-3"
+							style="height:100%">
+							<div class="col-md-12">
+								<i class="{{$data->icon}} h1" style="color: {{$data->color}}"></i>
+							</div>
+							<div class="col-md-12 mt-2">
+								<p class="h5 card-text text-dark">{{$data->name}}</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				</div>
-			</div>
 			</a>
 		</div>
 		@endforeach
