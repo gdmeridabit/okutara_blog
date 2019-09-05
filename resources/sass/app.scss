@@ -15,8 +15,12 @@
 // Styles
 @import 'style';
 
+// BASE CSS
+@import 'base';
+
 // Views 
 @import 'auth';
 @import 'home';
 @import 'layout';
 @import 'blog';
+@import 'dashboard';

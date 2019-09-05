@@ -1,0 +1,30 @@
+.dashboard {
+  a:hover{
+    text-decoration: none;
+    color: #000;
+  }
+  &-container {
+    width: 70vw;
+  }
+  &-content {
+    background: #fff;
+    padding: 15px;
+    margin: 15px auto;
+    border-radius: 5px;
+  }
+  &-blogs {
+    background: #fff;
+    margin: 15px auto;
+    padding: 0;
+    border-radius: 5px;
+  }
+  &-link {
+    display: block;
+    width: 100%;
+    padding:25px;
+    color: #000;
+  }
+  &-likes{
+    font-size: 12px;
+  }
+}

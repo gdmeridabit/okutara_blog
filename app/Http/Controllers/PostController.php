@@ -22,7 +22,7 @@ class PostController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        return view('post_create',['categories' => $categories]);
+        return view('post_create', ['categories' => $categories]);
     }
 
     /**
@@ -45,6 +45,7 @@ class PostController extends Controller
         $post->filename = $name;
         $post->description = $request->description;
         $post->user_id = $user->id;
+        $post->link = is_null($request->link) ? '' : $request->link;
         $result = $post->save();
 
         if (!$result) {
@@ -71,7 +72,8 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:50',
             'description' => 'required|max:500',
-            'fileToUpload' => 'required|file|max:1000000',
+            'fileToUpload' => 'required|file|image|max:100000',
+            'link' => 'nullable|regex:/\b(youtube)\b/i'
         ]);
 
         return $validatedData;
@@ -85,14 +87,23 @@ class PostController extends Controller
     public function post($id)
     {
         $post = Posts::find($id);
+        $like = null;
+        if (Auth::check()) {
+            $like = Likes::where('user_id', Auth::user()->id)
+                ->where('posts_id', $id)
+                ->first();
+        }
+        $isLike = is_null($like) ? false : true;
+
         $file = $this->getImage($post);
         $type = $this->checkFileType($file);
-        return view('post',['post' => $post, 'file' => $file, 'type' => $type]);
+        return view('post', ['post' => $post, 'file' => $file, 'type' => $type, 'isLiked' => $isLike]);
     }
 
-    private function getImage($data) {
+    private function getImage($data)
+    {
         try {
-            if($data->filename != null) {
+            if ($data->filename != null) {
                 $image = asset('storage/files/' . $data->filename);
             }
             Log::debug($image);
@@ -103,20 +114,23 @@ class PostController extends Controller
         }
     }
 
-    private function checkFileType($path) {
+    private function checkFileType($path)
+    {
         $ext = (pathinfo($path, PATHINFO_EXTENSION));
         switch ($ext) {
-            case "mov": case "mp4":
+            case "mov":
+            case "mp4":
                 return "vid";
                 break;
-            case "jpg": case "png": case "jpeg":
+            case "jpg":
+            case "png":
+            case "jpeg":
                 return "img";
                 break;
             default:
                 return "invalid";
         }
     }
-
 
     /**
      * Like
@@ -127,9 +141,68 @@ class PostController extends Controller
     {
         $post = Posts::find($id);
         Likes::create([
-            'user_id' => $post->user->id,
+            'user_id' => Auth::user()->id,
             'posts_id' => $post->id
         ]);
-        return back()->with('post', $post);
+        $like = null;
+        if (Auth::check()) {
+            $like = Likes::where('user_id', Auth::user()->id)
+                ->where('posts_id', $id)
+                ->first();
+        }
+        $isLike = empty($like) ? false : true;
+        return back()->with(['post' => $post, 'isLiked' => $isLike]);
+    }
+
+    public function updateIndex($id)
+    {
+        try {
+            $post = Posts::find($id);
+            $categories = Categories::all();
+            Log::debug($post->categories);
+            return view('post_update', ['post' => $post, 'categories' => $categories]);
+        } catch (\Exception $e) {
+            abort(404);
+        }
+
+    }
+
+    /**
+     * Posts Creation
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function update(Request $request)
+    {
+        $this->validateForm($request);
+        $post = Posts::find($request->id);
+        $file = $post->filename;
+        $user = Auth::user();
+        $name = '';
+        if ($files = $request->file('fileToUpload')) {
+            $name = $request->username . date("Ymdhis") . '.' . $files->getClientOriginalExtension();
+        }
+
+        $post->title = $request->title;
+        $post->filename = $file === $name ? $file : $name;
+        $post->description = $request->description;
+        $post->user_id = $user->id;
+        $post->link = is_null($request->link) ? '' : $request->link;
+        $result = $post->save();
+
+        if (!$result) {
+            return back()->with('create_failed', 'Opps! something went wrong');
+        } else {
+            if ($file != $name) {
+                Storage::delete($file);
+            }
+            $post->categories()->sync($request->categories);
+            Storage::disk('local')->putFileAs(
+                'public/files/',
+                $files,
+                $name
+            );
+            return back()->with('create_success', 'Congratulations you successfully updated your post!');
+        }
     }
 }

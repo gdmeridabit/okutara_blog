@@ -22,6 +22,10 @@ Route::get('/create-post', 'PostController@index')->name('create')->middleware('
 
 Route::post('/create', 'PostController@create')->middleware('auth');
 
+Route::get('/post/update/{id}', 'PostController@updateIndex')->middleware('auth');
+
+Route::put('/post/updated', 'PostController@update')->middleware('auth');
+
 Route::get('/post/{id}', 'PostController@post')->name('post');
 
 Route::get('/categories', 'CategoriesController@index')->name('categories');
@@ -29,3 +33,5 @@ Route::get('/categories', 'CategoriesController@index')->name('categories');
 Route::get('/category/{id}', 'CategoriesController@list');
 
 Route::get('/like/{id}', 'PostController@like')->middleware('auth');
+
+Route::get('/dashboard/{id}', 'HomeController@deletePost')->middleware('auth');

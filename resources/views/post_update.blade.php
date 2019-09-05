@@ -4,7 +4,7 @@
 <div class="container">
   <div class="blog-content mt-5">
 	<div class="d-flex">
-		<h2 class="mt-3 mb-2">Add New Post</h2>
+		<h2 class="mt-3 mb-2">Update Post</h2>
 	</div>
 	@if (session('create_success'))
 	<div class="d-flex justify-content-center">
@@ -23,11 +23,14 @@
 	</div>
 	@endif
 	<div class="d-flex flex-column justify-content-center">
-		<form action="/create" enctype="multipart/form-data" method="POST">
+		<form action="/post/updated/" enctype="multipart/form-data" method="POST">
 		@csrf
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input name="id" type="hidden" value="{{$post->id}}">
 		<div class="form-group">
 			<input type="text" class="form-control " id="title" name="title"
-				placeholder="Enter a catchy blog title here!">
+				placeholder="Enter a catchy blog title here!" value="{{ $post->title }}">
 			@error('title')
 			<span class="text-danger">{{ $message }}</span>
 			@enderror
@@ -50,7 +53,7 @@
 			</div>
 			<div class="col-sm-7">
 				<label class="h5" for="url">Or you can also add link from youtube</label>
-				<input type="text" class="form-control" id="link" name="link"
+				<input type="text" class="form-control" id="link" name="link" value="{{(!is_null($post->link)) ? $post->link : ''}}"
 					placeholder="Please enter url link here">
 				@error('link')
 				<span class="text-danger">{{ $message }}</span>
@@ -63,7 +66,7 @@
 			<div class="row justify-content-center">
 			@foreach ($categories as $data)
 			<div class="col-3">
-				<input type="checkbox" name="categories[]" value="{{ $data->id }}"> {{ $data->name }}<br>
+				<input type="checkbox" name="categories[]" value="{{ $data->id }}" {{ ($post->categories->contains($data->id)) ? 'checked="checked" ' : '' }} > {{ $data->name }}<br>
 			</div>
 			@endforeach
 			</div>
@@ -71,7 +74,7 @@
 		<!-- Create the editor container -->
 		<div class="form-group">
 			<label class="h5" for="description">Description</label><br/>
-			<textarea class="form-control" id="description" name="description" maxlength="500"></textarea>
+			<textarea class="form-control" id="description" name="description" maxlength="500">{{ $post->description }}</textarea>
 			<small class="form-text text-muted">Write a short description about your post</small>
 			@error('description')
 			<span class="text-danger">{{ $message }}</span>

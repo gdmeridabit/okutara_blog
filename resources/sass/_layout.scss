@@ -1,10 +1,19 @@
-/* NAVIGATION TOOLBAR */
-
 .navbar {
   height: 85px;
+  font-weight: 400;
  }
 
 .nav-link {
   display: block;
   padding: 10px 20px !important;
+}
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ccc;
+  color: white;
+  text-align: center;
 }

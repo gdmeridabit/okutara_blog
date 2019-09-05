@@ -1630,104 +1630,92 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="289" name="created_at">
+    <column id="376" parent="289" name="link">
       <Position>6</Position>
-      <DataType>timestamp|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="289" name="updated_at">
+    <column id="377" parent="289" name="created_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="378" parent="289" name="posts_user_id_foreign">
+    <column id="378" parent="289" name="updated_at">
+      <Position>8</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="379" parent="289" name="posts_user_id_foreign">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="379" parent="289" name="PRIMARY">
+    <key id="380" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="380" parent="289" name="posts_user_id_foreign">
+    <foreign-key id="381" parent="289" name="posts_user_id_foreign">
       <ColNames>user_id</ColNames>
       <RefSchemaName>okutara</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="381" parent="290" name="id">
+    <column id="382" parent="290" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="290" name="name">
+    <column id="383" parent="290" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="383" parent="290" name="email">
+    <column id="384" parent="290" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="290" name="email_verified_at">
+    <column id="385" parent="290" name="email_verified_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="385" parent="290" name="password">
+    <column id="386" parent="290" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="290" name="username">
+    <column id="387" parent="290" name="username">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="290" name="remember_token">
+    <column id="388" parent="290" name="remember_token">
       <Position>7</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="388" parent="290" name="created_at">
+    <column id="389" parent="290" name="created_at">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="389" parent="290" name="updated_at">
+    <column id="390" parent="290" name="updated_at">
       <Position>9</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="390" parent="290" name="users_email_unique">
-      <ColNames>email</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="391" parent="290" name="users_username_unique">
-      <ColNames>username</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="392" parent="290" name="PRIMARY">
+    <key id="391" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-    </key>
-    <key id="393" parent="290" name="users_email_unique">
-      <ColNames>email</ColNames>
-      <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
-    </key>
-    <key id="394" parent="290" name="users_username_unique">
-      <ColNames>username</ColNames>
-      <UnderlyingIndexName>users_username_unique</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

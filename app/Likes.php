@@ -28,7 +28,7 @@ class Likes extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function post()
+    public function posts()
     {
         return $this->belongsTo('App\Posts');
     }

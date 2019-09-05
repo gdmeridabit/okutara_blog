@@ -1,7 +1,23 @@
 .blog {
   &-container {
-    background: #fff;
     width: 70vw;
-    box-shadow: 3px 7px 9px -3px rgba(0,0,0,0.55);
+  }
+  &-content {
+    background: #fff;
+    padding: 30px;
+    margin: 15px auto;
+    border-radius: 5px;
+  }
+}
+
+.categories{
+  &-container {
+    width: 70vw;
+  }
+  &-img {
+    opacity: 0.65;
+  }
+  &-card {
+    padding: 5px !important;
   }
 }
