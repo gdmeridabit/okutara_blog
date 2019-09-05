@@ -20,9 +20,9 @@
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
   <link rel="shortcut icon" href="{{ asset('img/logo1_black.png') }}">
 </head>
-<body style="background: url('{{ asset('img/okutama.jpg') }}') center center no-repeat fixed; background-size: cover;">
+<body style="background-color: #ebecf000 !important; background: url('{{ asset('img/okutama.jpg') }}') center center no-repeat fixed; background-size: cover;">
   <div id="app">
-    <main class="py-4">
+    <main>
       @yield('content')
     </main>
   </div>
