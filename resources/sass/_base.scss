@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
 
 html, body {
-  background-color: #EBECF0;
-  // background: #fff;
   color: #000;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -21,14 +19,35 @@ small, .small {
 .form-control {
   display: block;
   width: 100%;
-  height: 50px;
+  height: 40px;
   padding: 15px;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
   color: #495057;
-  background-color: #fff;
+  background-color: rgb(255,255,255,0.85) !important;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 10px;
+}
+
+.form-block-container {
+  position: relative;
+  margin: auto !important;
+  width: 40% !important;
+  padding: 25px;
+  background: rgb(255,255,255, 0.85) !important;
+  border-radius: 5px;
+  color: #000;
+  box-shadow: 0px 0px 16px 9px rgba(0, 0, 0, 0.07);
+}
+
+a {
+  color: #5fac32;
+}
+
+a:hover {
+  color: #3c731c;
+  transition: all 0.5s ease;
+  text-decoration: none !important;
 }

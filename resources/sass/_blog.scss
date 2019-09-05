@@ -38,13 +38,12 @@
       border: none;
       font-size: 20px !important;
       color: #fff;
-      box-shadow: 2px 3px 47px -15px rgba(0,0,0,0.75);
     }
   }
 }
 
 .blog-create__publish:hover {
-  box-shadow: 2px 3px 76px -15px rgba(0,0,0,0.75);
+  box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease;
   color: #fff;
 }
@@ -59,6 +58,12 @@
   &-card {
     padding: 5px !important;
   }
+}
+
+.categories-link:hover {
+  transition: all 0.5s ease;
+  box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .list:hover{
