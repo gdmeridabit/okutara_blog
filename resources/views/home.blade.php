@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container dashboard-container">
+<div class="dashboard-container">
     <div class="mt-5">
         <div class="text-center">
             <h3>Hello, <span class="font-weight-bold text-success">{{ Auth::user()->name }}</span>!</h3>
@@ -60,22 +60,15 @@
                     @foreach($posts as $post)
                     <div class="flex-column">
                         <div class="d-flex dashboard">
-                            <a href="/post/{{ $post->id }}" class="dashboard-link">
+                            <div class="dashboard-link">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <img src="{{ asset('img/logo1_black.png') }}" width="100%"/>
+                                        <img src="{{asset('storage/files/'. $post->filename)}}" width="100%"/>
                                     </div>
                                     <div class="col-sm-9">
-                                        <div class="float-right">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <button class="dropdown-item" type="button">Edit</button>
-                                                    <button class="dropdown-item" type="button" onclick="{{ url('/dashboard/' . $post->id) }}">Delete</button>
-                                                </div>
-                                            </div>
+                                        <div class="dashboard-actions">
+                                            <a class="btn btn-light" href="{{ url('/post/update/' . $post->id) }}" ><i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-light" href="{{ url('/dashboard/' . $post->id) }}" ><i class="fas fa-trash-alt"></i></a>
                                         </div>
                                         <span class="h4 font-weight-bold">
                       {{ $post->title }}
@@ -88,16 +81,13 @@
                                         <p class="text-secondary text-truncate">
                                             {{ $post->description }}
                                         </p>
-                                        <div class="dashboard-likes">
-                                            <i class="fas fa-thumbs-up ml-2 mr-1"></i> {{ count($post->likes) }}
-                                        </div>
+                                        <a class="btn btn-outline-success" href="/post/{{ $post->id }}">Read More</a>
+                                        <i class="fas fa-thumbs-up ml-2 mr-1"></i> {{ count($post->likes) }}
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </div>
-                    <a class="dropdown-item" type="button" href="{{ url('/post/update/' . $post->id) }}" >Update</a>
-                    <a class="dropdown-item" type="button" href="{{ url('/dashboard/' . $post->id) }}" >Delete</a>
                     @endforeach
                     @endif
                 </div>

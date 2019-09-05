@@ -1,11 +1,17 @@
 .navbar {
-  height: 85px;
+  height: 95px;
   font-weight: 400;
+  width: 100%;
+  background: rgba(0,0,0,.5);
  }
 
 .nav-link {
   display: block;
   padding: 10px 20px !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 1);
 }
 
 .footer {
@@ -16,4 +22,12 @@
   background-color: #ccc;
   color: white;
   text-align: center;
+}
+
+.btn-user {
+  color: #fff;
+  background-color: rgb(56, 193, 114, 0.8);
+  border-color: #38c172;
+  border-radius: 20px;
+  padding: 10px 20px;
 }
