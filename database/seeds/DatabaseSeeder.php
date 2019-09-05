@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'Sightseeing',
             'icon' => 'fas fa-leaf',
-            'color' => '#85DCB'
+            'color' => '#87CDCA'
         ]);
         DB::table('categories')->insert([
             'name' => 'Foodtrip',
