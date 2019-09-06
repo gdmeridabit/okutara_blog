@@ -7,6 +7,22 @@
             <h3>Hello, <span class="font-weight-bold text-success">{{ Auth::user()->name }}</span>!</h3>
             <small>What are you writing about today?</small>
         </div>
+        @if (session('delete_success'))
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ session('delete_success') }}</strong>
+            </div>
+        </div>
+        @endif
+        @if (session('delete_failed'))
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-error alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ session('delete_failed') }}</strong>
+            </div>
+        </div>
+        @endif
         <div class="row mt-3">
             <div class="col-sm-4">
                 <div class="container dashboard-content">
@@ -34,22 +50,6 @@
                     </div>
                 </div>
             </div>
-            @if (session('delete_success'))
-            <div class="d-flex justify-content-center">
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ session('create_success') }}</strong>
-                </div>
-            </div>
-            @endif
-            @if (session('delete_failed'))
-            <div class="d-flex justify-content-center">
-                <div class="alert alert-error alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ session('create_failed') }}</strong>
-                </div>
-            </div>
-            @endif
             <div class="col-sm-8">
                 <div class="container dashboard-blogs">
                     <div style="padding: 20px">
