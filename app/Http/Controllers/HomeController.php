@@ -38,7 +38,7 @@ class HomeController extends Controller
         if (!$post->delete()) {
             return back()->with('delete_failed', 'Opps! something went wrong');
         } else {
-            return back()->with('delete_success', 'Successfully deleted a profile!');
+            return back()->with('delete_success', 'Successfully deleted a post!');
         }
     }
 }
