@@ -41,7 +41,7 @@
  </div>
 <div class="row">    
     <div class="col-md-4">
-    <img src="{{asset('storage/images/okutara_black.png')}}" style="padding-left:120px;width:78%"/>
+    <img src="{{asset('img/okutara_black.png')}}" style="padding-left:120px;width:78%"/>
     </div> 
     <div class="col-md-8">
     <p style="text-align:left;padding-right:150px;line-height:19px;font-size:1em" class="lead">
@@ -57,7 +57,7 @@
 <br/>
 <div class="row">
 <div class="col-md-4" style="padding-left:120px;text-align:center">
-<img src="{{asset('storage/images/gwen_pic.jpg')}}" class="rounded-circle mx-auto d-block" style="width:50%">
+<img src="{{asset('img/gwen_pic.jpg')}}" class="rounded-circle mx-auto d-block" style="width:50%">
 <br/>
 <b>Gwen Merida</b>
 <br/>
@@ -65,7 +65,7 @@ Software Developer
 </div>
 
 <div class="col-md-4" style="text-align:center">
-<img src="{{asset('storage/images/jp_pic.jpg')}}" class="rounded-circle mx-auto d-block" style="width:38%">
+<img src="{{asset('img/jp_pic.jpg')}}" class="rounded-circle mx-auto d-block" style="width:38%">
 <br/>
 <b>JP Salvacion</b>
 <br/>
@@ -73,7 +73,7 @@ UX Designer / Content Director
 </div>
 
 <div class="col-md-4" style="padding-right:120px;text-align:center">
-<img src="{{asset('storage/images/mica_pic.jpg')}}" class="rounded-circle mx-auto d-block" style="width:50%">
+<img src="{{asset('img/mica_pic.jpg')}}" class="rounded-circle mx-auto d-block" style="width:50%">
 <br/>
 <b>Mica Delmonte</b>
 <br/>
