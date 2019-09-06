@@ -17,7 +17,7 @@
 						<div class="row justify-content-center align-content-center px-3"
 							style="height:100%">
 							<div class="col-md-12">
-								<i class="{{$data->icon}} h1" style="color: {{$data->color}}"></i>
+								<i class="{{$data->icon}}" style="font-size: 50px; color: {{$data->color}}"></i>
 							</div>
 							<div class="col-md-12 mt-2">
 								<p class="h5 card-text text-dark">{{$data->name}}</p>
