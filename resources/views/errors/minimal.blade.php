@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Coming Soon</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -50,7 +50,13 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-          <img src="{{asset('img/comingsoon.png')}}">
+            <div class="code">
+                @yield('code')
+            </div>
+
+            <div class="message" style="padding: 10px;">
+                @yield('message')
+            </div>
         </div>
     </body>
 </html>
