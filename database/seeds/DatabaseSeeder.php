@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
         ]);
         DB::table('categories')->insert([
-            'name' => 'Outdoor',
+            'name' => 'Outdoor Activities',
             'icon' => 'fas fa-hiking',
             'color' => '#E27D60'
         ]);

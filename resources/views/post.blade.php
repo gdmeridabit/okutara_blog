@@ -22,8 +22,8 @@
 			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen></iframe>
 		@endif
-		<div class="d-flex">
-			<p class="mx-2 my-4">{{ $post->description }}</p>
+		<div class="d-flex mx-2 my-4">
+			{{ $post->description }}
 		</div>
 		<hr />
 		@if(Auth::check())

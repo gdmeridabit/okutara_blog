@@ -71,7 +71,7 @@ class PostController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:50',
-            'description' => 'required|max:1000',
+            'description' => 'required',
             'fileToUpload' => 'required|file|image|max:100000',
             'link' => 'nullable|regex:/\b(youtube)\b/i'
         ]);

@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -35,6 +36,8 @@ class HomeController extends Controller
     public function deletePost($id)
     {
         $post = Posts::find($id);
+        Storage::delete($post->filename);
+        unlink(storage_path('app/public/files/'.$post->filename));
         if (!$post->delete()) {
             return back()->with('delete_failed', 'Opps! something went wrong');
         } else {
