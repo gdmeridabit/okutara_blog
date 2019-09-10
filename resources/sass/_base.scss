@@ -6,7 +6,6 @@ html, body {
   color: #000;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  height: 100%;
   padding: 0;
   margin: 0;
 }
@@ -52,4 +51,13 @@ a:hover {
   color: #3c731c;
   transition: all 0.5s ease;
   text-decoration: none !important;
+}
+
+.footer-container{
+  background: #e2e2e2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: #fff;
 }

@@ -29,7 +29,7 @@
 
 </head>
 <body>
-  <fo id="app">
+  <div id="app">
     <nav class="navbar fixed-top navbar-expand-md navbar-dark shadow-sm">
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -93,12 +93,12 @@
         </div>
       </div>
     </nav>
-    <main>
+    <main style="min-height: 80vh">
       @yield('content')
     </main>
-    <!-- <footer>
-      Copyright 2019 Okutama Japanese Language School
-    </footer> -->
+    <footer class="text-center footer-container">
+      <span class="small">All rights reserved © 2019 Okutara</span>
+    </footer>
   </div>
 </body>
 </html>
