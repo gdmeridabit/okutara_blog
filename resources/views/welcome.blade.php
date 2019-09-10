@@ -27,7 +27,7 @@
           <div class="card-body text-right py-5">
               <h4 class="card-title featured-blog__title">{{ $item->title }}</h4>
               <span class="featured-blog__subtitle">
-                {{ $item->created_at }}
+                {{ date( "F d, Y", strtotime($item->created_at)) }}
                 <br />
                 {{ $item->user->name }}
               </span>
