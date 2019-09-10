@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
         DB::table('users')->insert([
             'name' => 'Admin Admin',
             'username' => 'admin',
@@ -49,6 +48,5 @@ class DatabaseSeeder extends Seeder
             'icon' => 'fas fa-heart',
             'color' => '#E27D60'
         ]);
-        factory(App\User::class, 20)->create();
     }
 }
