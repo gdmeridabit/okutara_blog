@@ -27,9 +27,13 @@
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
-    <!-- include summernote css/js -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script src="https://cdn.tiny.cloud/1/qb9lqkpakab0bxj1707omfwo19xv2ei47t077uc54uk2g7nq/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <script>tinymce.init({
+            selector: 'textarea.tinymce',
+            menubar: false,
+            body_class: 'description_display'
+    });</script>
 </head>
 <body>
 <div id="app">
@@ -102,11 +106,11 @@
         </div>
     </nav>
     <main style="min-height: 80vh">
-      @yield('content')
+        @yield('content')
     </main>
     <footer class="text-center footer-container">
-      <span class="small">All rights reserved © 2019 Okutara</span>
+        <span class="small">All rights reserved © 2019 Okutara</span>
     </footer>
-  </div>
+</div>
 </body>
 </html>
