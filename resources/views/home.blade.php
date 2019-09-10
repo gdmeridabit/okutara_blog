@@ -5,7 +5,7 @@
     <div class="mt-5">
         <div class="text-center">
             <h3>Hello, <span class="font-weight-bold text-success">{{ Auth::user()->name }}</span>!</h3>
-            <small>What are you writing about today?</small>
+            <small>Share your Okutama Experience</small>
         </div>
         @if (session('delete_success'))
         <div class="d-flex justify-content-center">

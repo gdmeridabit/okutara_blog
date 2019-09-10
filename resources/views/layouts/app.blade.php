@@ -59,8 +59,8 @@
                             Categories</a>
                     </li>
                 </ul>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo1_white.png') }}" style="height: 50px"/>
+                <a class="navbar-brand" href="{{ url('/') }}" >
+                    <img src="{{ asset('img/logo1_white.png') }}" style="height: 50px;"/>
                 </a>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">

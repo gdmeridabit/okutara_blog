@@ -5,7 +5,7 @@
 	<div class="categories-content">
 		<div class="text-center mt-5 mb-4">
 			<h2 class="font-weight-bold">Categories</h2>
-			<small>What do you want to know about Okutama?</small>
+			<small>Know more about Okutama</small>
 		</div>
 		<div class="row">
 		@foreach($categories as $data)
