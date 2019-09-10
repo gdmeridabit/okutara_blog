@@ -8,7 +8,7 @@
       <a href="/"><i class="fas fa-arrow-left"></i>　<span>Go back to Home</span></a>
     </div>
     <div class="form-block-logo">
-      <img src="https://files.slack.com/files-pri/T6BRWAL7P-FLZ1T4HFH/logo1_black.png">
+      <img src="{{ asset('img/logo1_black.png') }}">
     </div>
     <h4>Welcome back to Okutara!</h4>
     <form method="POST" action="{{ route('login') }}">
