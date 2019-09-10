@@ -9,7 +9,6 @@
       <div class="form-block-logo">
         <img src="{{ asset('img/logo1_black.png') }}">
       </div>
-      <h4>Write and share your experience!</h4>
       <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form-group row">

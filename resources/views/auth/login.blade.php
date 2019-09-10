@@ -10,7 +10,6 @@
     <div class="form-block-logo">
       <img src="{{ asset('img/logo1_black.png') }}">
     </div>
-    <h4>Welcome back to Okutara!</h4>
     <form method="POST" action="{{ route('login') }}">
       @csrf
       <div class="form-group row">
