@@ -21,19 +21,27 @@
 </div>
 @foreach($posts as $item)
 <a href="/post/{{ $item->id}}" class="card-link title-card" >
-<div class="card" style="">
-<div class="row" style="height: 200px; width: 100%; object-fit: cover; background-position: left; background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 1) 290px), url({{asset('storage/files/'. $item->filename)}}) center center no-repeat; background-size: cover;">
-    <div class="col-md-6 offset-md-6">
-        <div class="card-body text-right">
-            <h4 class="card-title text-primary">{{ $item->title }}</h4>
-            <p>{{ $item->created_at }}</p>
-            <p>{{ $item->user->name }}</p>
+<div class="card featured-blog" style="">
+<div class="row featured-container" style="background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 1) 290px), url({{asset('storage/files/'. $item->filename)}}) center center no-repeat; background-size: cover">
+    <div class="col-md-10 offset-md-2">
+        <div class="card-body text-right py-5">
+            <h4 class="card-title featured-blog__title">{{ $item->title }}</h4>
+            <span class="featured-blog__subtitle">
+              {{ $item->created_at }}
+              <br />
+              {{ $item->user->name }}
+            </span>
         </div>
     </div>
 </div>   
 </div>
 </a>
 @endforeach
+<div class="row my-5">
+  <div class="col-md-12">
+    <a class="btn featured-share" href="{{ route('create') }}">Share your <span style="color: rgb(27, 27, 27)">Okutama experience</span></a>
+  </div>
+</div>
 <div class="my-5">
   <span class="featured-title">
     <span class="font-weight-bold">About</span><span class="font-weight-light">Us</span>
