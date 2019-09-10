@@ -57,7 +57,7 @@ class PostController extends Controller
                 $files,
                 $name
             );
-            return back()->with('create_success', 'Congratulations you successfully created your post!');
+            return redirect()->route('dashboard');
         }
     }
 
@@ -71,7 +71,7 @@ class PostController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:50',
-            'description' => 'required|max:500',
+            'description' => 'required|max:1000',
             'fileToUpload' => 'required|file|image|max:100000',
             'link' => 'nullable|regex:/\b(youtube)\b/i'
         ]);
@@ -202,7 +202,7 @@ class PostController extends Controller
                 $files,
                 $name
             );
-            return back()->with('create_success', 'Congratulations you successfully updated your post!');
+            return redirect()->route('dashboard');
         }
     }
 }

@@ -17,18 +17,11 @@
 				</span>
 			</h6>
 		</div>
+		@if($post->link != null)
 		<iframe width="100%" height="500px" src="{{$post->link}}" frameborder="0"
 			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen></iframe>
-		<!-- <div class="d-flex">
-			@if($type == 'img')
-			<img src="{{ $file }}" width="100%">
-			@elseif($type == 'vid')
-			<video autoplay loop width="100%" controls>
-				<source src="{{ $file }}" type="video/mp4"/>
-			</video>
-			@endif
-		</div> -->
+		@endif
 		<div class="d-flex">
 			<p class="mx-2 my-4">{{ $post->description }}</p>
 		</div>
