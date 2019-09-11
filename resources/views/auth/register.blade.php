@@ -6,6 +6,14 @@
       <div class="text-left">
         <a href="/"><i class="fas fa-arrow-left"></i>　<span>Go back to Home</span></a>
       </div>
+        @if(Session::has('message'))
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-error alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ Session::get('message') }}</strong>
+            </div>
+        </div>
+        @endif
       <div class="form-block-logo">
         <img src="{{ asset('img/logo1_black.png') }}">
       </div>

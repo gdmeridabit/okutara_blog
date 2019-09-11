@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -64,11 +65,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = User::where('username', $data['username'])
+                    ->where('email', $data['email'])
+                    ->get();
+        if(is_null($user)) {
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'username' => $data['username'],
+                'password' => Hash::make($data['password']),
+            ]);
+        } else {
+            Session::flash('message', 'Username and Email Address already exist');
+            return redirect()->route('register');
+        }
     }
 }
