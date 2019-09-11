@@ -81,7 +81,7 @@
                     </span>
                                         <br/>
                                         <p class="text-secondary">
-                                            {{ str_limit($post->description, $limit = 150, $end = "...") }}
+                                            {!! str_limit($post->description, $limit = 150, $end = "...") !!}
                                         </p>
                                         <a class="btn btn-outline-success" href="/post/{{ $post->id }}">Read More</a>
                                         <i class="fas fa-thumbs-up ml-2 mr-1"></i> {{ count($post->likes) }}
