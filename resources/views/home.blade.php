@@ -30,7 +30,7 @@
                     <hr/>
                     <div class="row">
                         <div class="col-sm-4 text-right font-weight-bold">
-                            Full Name
+                            Name
                         </div>
                         <div class="col-sm-8 text-truncate">
                             {{ Auth::user()->name }}
@@ -81,7 +81,7 @@
                     </span>
                                         <br/>
                                         <p class="text-secondary text-truncate">
-                                            {{ $post->description }}
+                                            {!! $post->description !!}
                                         </p>
                                         <a class="btn btn-outline-success" href="/post/{{ $post->id }}">Read More</a>
                                         <i class="fas fa-thumbs-up ml-2 mr-1"></i> {{ count($post->likes) }}
