@@ -16,7 +16,7 @@
 <div class="justify-content-center text-center">
     <div class="my-5 pt-5">
     <span class="featured-title">
-      <span class="font-weight-bold">Featured</span><span class="font-weight-light">Articles</span>
+      <span class="font-weight-bold">Featured</span><span class="font-weight-light">Blogs</span>
     </span>
     </div>
     @foreach($posts as $item)
