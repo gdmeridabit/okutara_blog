@@ -74,9 +74,9 @@
 			</div>
 		</div>
 		<!-- Create the editor container -->
-		<div class="form-group">
+		<div class="form-group blog-form">
 			<label class="blog-create__label" for="description">Description</label><br/>
-			<textarea class="form-control" id="description" name="description" maxlength="1000">{{ $post->description }}</textarea>
+			<textarea class="form-control tinymce" name="description"></textarea>
 			<small class="form-text text-muted">Write a short description about your post</small>
 			@error('description')
 			<span class="text-danger">{{ $message }}</span>

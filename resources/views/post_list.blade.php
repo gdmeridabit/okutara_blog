@@ -18,7 +18,7 @@
               <div class="card-body">
                 <h4 class="card-title text-dark h4 font-weight-bold" style="min-height: 60px;">{{ $post->title }}</h4>
                 <p class="text-dark small">{{ $post->user->name }} <br /> {{ $post->created_at }}</p>
-                <p class="text-dark text-truncate">{!! $post->description !!}</p>
+                <p class="text-dark">{{ str_limit($post->description, $limit = 50, $end = "...") }}</p>
                 <div class="text-dark text-right">
                   <i class="fas fa-thumbs-up ml-2 mr-1"></i> {{ count($post->likes) }}
                 </div>
