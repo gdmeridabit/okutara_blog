@@ -70,7 +70,7 @@ class PostController extends Controller
     public function validateForm(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:50',
+            'title' => 'required|max:150',
             'description' => 'required',
             'fileToUpload' => 'required|file|image|max:100000',
             'link' => 'nullable|regex:/\b(youtube)\b/i'

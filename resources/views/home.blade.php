@@ -30,21 +30,21 @@
                     <hr/>
                     <div class="row">
                         <div class="col-sm-4 text-right font-weight-bold">
-                            Full Name
+                            Name
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 text-truncate">
                             {{ Auth::user()->name }}
                         </div>
                         <div class="col-sm-4 text-right font-weight-bold">
                             Username
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 text-truncate">
                             {{ Auth::user()->username }}
                         </div>
                         <div class="col-sm-4 text-right font-weight-bold">
                             Email
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 text-truncate">
                             {{ Auth::user()->email }}
                         </div>
                     </div>
@@ -70,16 +70,18 @@
                                             <a class="btn btn-light" href="{{ url('/post/update/' . $post->id) }}" ><i class="fas fa-edit"></i></a>
                                             <a class="btn btn-light" href="{{ url('/dashboard/' . $post->id) }}" ><i class="fas fa-trash-alt"></i></a>
                                         </div>
-                                        <span class="h4 font-weight-bold">
-                      {{ $post->title }}
-                    </span>
+                                        <div style="width: 80%">
+                                            <span class="h4 font-weight-bold">
+                                                {{ $post->title }}
+                                            </span>
+                                        </div>
                                         <br/>
                                         <span class="small text-secondary">
                       {{ $post->created_at }}
                     </span>
                                         <br/>
                                         <p class="text-secondary text-truncate">
-                                            {{ $post->description }}
+                                            {!! $post->description !!}
                                         </p>
                                         <a class="btn btn-outline-success" href="/post/{{ $post->id }}">Read More</a>
                                         <i class="fas fa-thumbs-up ml-2 mr-1"></i> {{ count($post->likes) }}
