@@ -7,7 +7,7 @@
             <source src="{{asset('img/Okutara_home.mp4')}}" type="video/mp4"/>
         </video>
         <div class="home-text home-logo">
-            <img src="{{asset('logo1_white.png')}}"/>
+            <img src="{{asset('img/logo1_white.png')}}"/>
         </div>
     </div>
 </div>
