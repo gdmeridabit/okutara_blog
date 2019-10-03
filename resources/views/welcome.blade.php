@@ -7,7 +7,7 @@
             <source src="{{asset('img/Okutara_home.mp4')}}" type="video/mp4"/>
         </video>
         <div class="home-text home-logo">
-            <img src="https://okutara.s3-ap-northeast-1.amazonaws.com/logo1_white.png"/>
+            <img src="{{asset('logo1_white.png')}}"/>
         </div>
     </div>
 </div>
