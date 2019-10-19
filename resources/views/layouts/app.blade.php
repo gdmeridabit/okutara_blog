@@ -2,7 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Okutara is a blog/vlog shring site for Okutama. It aims to promote the beauty of Okutama.">
+    <meta name="keywords" content="Okutama, 奥多摩, Tokyo, 東京">
+    <meta name="author" content="Okutama-plus Education">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,11 +32,13 @@
 
     <script src="https://cdn.tiny.cloud/1/qb9lqkpakab0bxj1707omfwo19xv2ei47t077uc54uk2g7nq/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
-    <script>tinymce.init({
+    <script>
+        tinymce.init({
             selector: 'textarea.tinymce',
             menubar: false,
             body_class: 'description_display'
-    });</script>
+        });
+    </script>
 </head>
 <body>
 <div id="app">

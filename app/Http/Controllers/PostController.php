@@ -41,11 +41,12 @@ class PostController extends Controller
             $name = $request->username . date("Ymdhis") . '.' . $files->getClientOriginalExtension();
         }
 
+        $this->embedYoutube($request->link);
         $post->title = $request->title;
         $post->filename = $name;
         $post->description = $request->description;
         $post->user_id = $user->id;
-        $post->link = is_null($request->link) ? '' : $request->link;
+        $post->link = is_null($request->link) ? '' : $this->embedYoutube($request->link);
         $result = $post->save();
 
         if (!$result) {
@@ -61,6 +62,15 @@ class PostController extends Controller
         }
     }
 
+    private function embedYoutube($link)
+    {
+        $match = preg_match("/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/", $link, $matches);
+        Log::debug($matches[2]);
+        if($match && strlen($matches[2]) == 11) {
+            return 'https://www.youtube.com/embed/' . $matches[2];
+        }
+    }
+
     /**
      * Input validations
      *
@@ -73,7 +83,7 @@ class PostController extends Controller
             'title' => 'required|max:150',
             'description' => 'required',
             'fileToUpload' => 'required|file|image|max:100000',
-            'link' => 'nullable|regex:/\b(youtube)\b/i'
+            'link' => ['nullable','regex:/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/']
         ]);
 
         return $validatedData;

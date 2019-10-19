@@ -54,7 +54,6 @@
 				<label class="blog-create__label" for="url">Or you can also add link from youtube</label>
 				<input type="text" class="form-control" id="link" name="link"
 					placeholder="Please enter url link here">
-				<small class="form-text text-muted">Please provide the embedded link. 	EX. https://www.youtube.com/embed/DRu7clboPP0</small>
 				@error('link')
 				<span class="text-danger">{{ $message }}</span>
 				@enderror
