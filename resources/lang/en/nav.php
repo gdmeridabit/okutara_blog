@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Language Lines
+    | Navigation Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various
@@ -13,12 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'username' => 'Username',
-    'password' => 'Password',
-    'login' => 'Login',
-    'remember' => 'Remember Me',
-    'sign_in' => 'Don\'t have an account yet? Sign up now!',
-    'go_back' => 'Go back to Home',
+    'home' => 'Home',
+    'category' => 'Category',
+    'register' => 'Register',
 ];

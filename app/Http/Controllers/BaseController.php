@@ -7,13 +7,16 @@ use App\Likes;
 use App\PostCategorize;
 use App\Posts;
 use App\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+
 class BaseController extends Controller
 {
-    public function index() {
+    public function index($locale) {
+        app()->setLocale($locale);
         $posts = Posts::withCount('likes')
             ->orderBy('likes_count', 'desc')
             ->take(3)

@@ -21,8 +21,9 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($locale)
     {
+        app()->setLocale($locale);
         $categories = Categories::all();
         return view('category', ['categories' => $categories]);
     }

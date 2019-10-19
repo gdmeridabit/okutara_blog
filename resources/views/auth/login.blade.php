@@ -5,7 +5,7 @@
   style="height: 100vh">
   <div class="form-block-container" >
     <div class="text-left">
-      <a href="/"><i class="fas fa-arrow-left"></i>　<span>Go back to Home</span></a>
+      <a href="/"><i class="fas fa-arrow-left"></i>　<span>@lang('auth.go_back)</span></a>
     </div>
     <div class="form-block-logo">
       <img src="{{ asset('img/logo1_black.png') }}">
@@ -44,7 +44,7 @@
           </button>
         </div>
         <div class="col-md-12">
-          <a class="nav-link" href="{{ route('register') }}">Don't have an account yet? Sign up now!</a>
+          <a class="nav-link" href="{{ route('register') }}">@lang('auth.sign_in')</a>
         </div>
       </div>
     </form>

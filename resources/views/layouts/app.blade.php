@@ -54,14 +54,14 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <a class="nav-link" href="/"><i class="fas fa-home pr-2"></i> Home</a>
+                        <a class="nav-link" href="/"><i class="fas fa-home pr-2"></i>@lang('nav.home')</a>
                     </li>
                     <!-- <li>
                       <a class="nav-link" href="/"><i class="fas fa-info-circle pr-2"></i> About</a>
                     </!-->
                     <li>
-                        <a class="nav-link" href="{{ route('categories') }}"><i class="fas fa-list-ul pr-2"></i>
-                            Categories</a>
+                        <a class="nav-link" href="{{ route('categories', ['locale' => App::getLocale()]) }}"><i class="fas fa-list-ul pr-2"></i>
+                            @lang('nav.category')</a>
                     </li>
                 </ul>
                 <a class="navbar-brand" href="{{ url('/') }}" >
@@ -72,11 +72,11 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">@lang('nav.register')</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="btn btn-user" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="btn btn-user" href="{{ route('login') }}">@lang('auth.login')</a>
                     </li>
                     @endif
                     @else
@@ -106,6 +106,12 @@
                         </div>
                     </li>
                     @endguest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home', ['locale' => App::getLocale()]) }}">EN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/ja') }}">日本語</a>
+                    </li>
                 </ul>
             </div>
         </div>

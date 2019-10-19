@@ -15,10 +15,10 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'username' => 'Username',
-    'password' => 'Password',
-    'login' => 'Login',
+    'username' => 'ユーザー名',
+    'password' => 'パスワード',
+    'login' => 'ログイン',
     'remember' => 'Remember Me',
     'sign_in' => 'Don\'t have an account yet? Sign up now!',
-    'go_back' => 'Go back to Home',
+    'go_back' => '戻る',
 ];
