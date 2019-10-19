@@ -40,7 +40,7 @@
     @endforeach
     <div class="d-flex flex-row my-5">
         <div class="col-md-12">
-            <a class="btn featured-share" href="{{ route('create') }}">
+            <a class="btn featured-share" href="{{ route('create', ['locale' => App::getLocale()]) }}">
                 Share your
                 <span style="color: rgb(27, 27, 27)">Okutama experience</span>
                 <i class="fas fa-caret-right"></i>

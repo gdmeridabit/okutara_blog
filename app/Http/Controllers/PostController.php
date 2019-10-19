@@ -19,8 +19,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($locale)
     {
+        app()->setLocale($locale);
         $categories = Categories::all();
         return view('post_create', ['categories' => $categories]);
     }
@@ -164,8 +165,9 @@ class PostController extends Controller
         return back()->with(['post' => $post, 'isLiked' => $isLike]);
     }
 
-    public function updateIndex($id)
+    public function updateIndex($id, $locale)
     {
+        app()->setLocale($locale);
         try {
             $post = Posts::find($id);
             $categories = Categories::all();

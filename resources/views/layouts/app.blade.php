@@ -81,7 +81,7 @@
                     @endif
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('create') }}"><i class="fas fa-pen-fancy pr-2"></i> Add New
+                        <a class="nav-link" href="{{ route('create', ['locale' => App::getLocale()]) }}"><i class="fas fa-pen-fancy pr-2"></i> Add New
                             Post</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -107,7 +107,7 @@
                     </li>
                     @endguest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home', ['locale' => App::getLocale()]) }}">EN</a>
+                        <a class="nav-link" href="{{ route('home', ['locale' => 'en']) }}">EN</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/ja') }}">日本語</a>
