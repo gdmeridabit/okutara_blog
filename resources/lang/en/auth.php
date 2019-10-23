@@ -18,6 +18,7 @@ return [
     'username' => 'Username',
     'password' => 'Password',
     'login' => 'Login',
+    'logout' => 'Logout',
     'remember' => 'Remember Me',
     'sign_in' => 'Don\'t have an account yet? Sign up now!',
     'go_back' => 'Go back to Home',

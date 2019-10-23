@@ -18,6 +18,7 @@ return [
     'username' => 'ユーザー名',
     'password' => 'パスワード',
     'login' => 'ログイン',
+    'logout' => 'ロゴアウト',
     'remember' => 'Remember Me',
     'sign_in' => 'Don\'t have an account yet? Sign up now!',
     'go_back' => '戻る',

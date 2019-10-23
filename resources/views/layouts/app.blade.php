@@ -64,7 +64,7 @@
                             @lang('nav.category')</a>
                     </li>
                 </ul>
-                <a class="navbar-brand" href="{{ url('/') }}" >
+                <a class="navbar-brand" href="{{ url('/' . app()->getLocale()) }}" >
                     <img src="{{ asset('img/logo1_white.png') }}" style="height: 50px;"/>
                 </a>
                 <!-- Right Side Of Navbar -->
@@ -72,11 +72,11 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">@lang('nav.register')</a>
+                        <a class="nav-link" href="{{ route('register', ['locale' => App::getLocale()]) }}">@lang('nav.register')</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="btn btn-user" href="{{ route('login') }}">@lang('auth.login')</a>
+                        <a class="btn btn-user" href="{{ route('login', ['locale' => App::getLocale()]) }}">@lang('auth.login')</a>
                     </li>
                     @endif
                     @else
@@ -91,27 +91,28 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                <i class="fas fa-user-alt mr-2"></i> {{ __('Profile') }}
+                            <a class="dropdown-item" href="{{ route('dashboard', ['locale' => App::getLocale()]) }}">
+                                <i class="fas fa-user-alt mr-2"></i> @lang('nav.profile')
                             </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="{{ route('logout', ['locale' => App::getLocale()]) }}"
                                onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
-                                <i class="fas fa-sign-out-alt mr-2"></i> {{ __('Logout') }}
+                                <i class="fas fa-sign-out-alt mr-2"></i> @lang('auth.logout')
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout', ['locale' => App::getLocale()]) }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         </div>
                     </li>
                     @endguest
+                    @foreach (config('app.available_locales') as $locale)
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home', ['locale' => 'en']) }}">EN</a>
+                        <a class="nav-link"
+                           href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
+                           @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/ja') }}">日本語</a>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

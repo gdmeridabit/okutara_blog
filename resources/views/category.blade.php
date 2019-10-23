@@ -4,13 +4,13 @@
 <div class="container">
 	<div class="categories-content">
 		<div class="text-center mt-5 mb-4">
-			<h2 class="font-weight-bold">Categories</h2>
+			<h2 class="font-weight-bold">@lang('nav.category')</h2>
 			<small>Know more about Okutama</small>
 		</div>
 		<div class="row">
 		@foreach($categories as $data)
 		<div class="col-4 categories-card">
-			<a href="/category/{{ $data->id }}">
+			<a href="{{ route('categorize-post', ['locale' => App::getLocale(), 'id' => $data->id]) }}">
 				<div class="card categories-link">
 					<div class="card-body text-center py-5 my-4"
 						style="height: 200px;">

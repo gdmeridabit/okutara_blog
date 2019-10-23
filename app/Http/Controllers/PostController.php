@@ -95,8 +95,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function post($id)
+    public function postListIndex($id, $locale)
     {
+        app()->setLocale($locale);
         $post = Posts::find($id);
         $like = null;
         if (Auth::check()) {

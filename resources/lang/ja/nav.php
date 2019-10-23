@@ -16,4 +16,5 @@ return [
     'home' => 'ホーム',
     'category' => 'カテゴリー',
     'register' => '登録',
+    'profile' => 'プロファイル',
 ];

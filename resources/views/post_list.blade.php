@@ -10,7 +10,7 @@
       @foreach($category as $data)
         @foreach($data->posts as $post)
         <div class="col-4">
-          <a href="/post/{{ $post->id }}" class="card-link">
+          <a href="{{ route('post-list', ['id' => $post->id, 'locale' => App::getLocale()]) }}" class="card-link">
             <div class="card ml-2 mb-2 list" style="width: 100%; height: 460px">
               <div style="height: 220px; width: 100%">
                 <img src="{{asset('storage/files/'. $post->filename)}}" class="img-fluid" style="height: 100%; width: 100%; object-fit:cover" />

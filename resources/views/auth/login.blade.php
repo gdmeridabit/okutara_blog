@@ -5,12 +5,12 @@
   style="height: 100vh">
   <div class="form-block-container" >
     <div class="text-left">
-      <a href="/"><i class="fas fa-arrow-left"></i>　<span>@lang('auth.go_back)</span></a>
+      <a href="/"><i class="fas fa-arrow-left"></i>　<span>@lang('auth.go_back')</span></a>
     </div>
     <div class="form-block-logo">
-      <img src="{{ asset('img/logo1_black.png') }}">
+        <img src="{{ asset('img/logo1_black.png') }}">
     </div>
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login', ['locale' => App::getLocale()]) }}">
       @csrf
       <div class="form-group row">
         <div class="col-md-12">
@@ -44,7 +44,7 @@
           </button>
         </div>
         <div class="col-md-12">
-          <a class="nav-link" href="{{ route('register') }}">@lang('auth.sign_in')</a>
+          <a class="nav-link" href="{{ route('register', ['locale' => App::getLocale()]) }}">@lang('auth.sign_in')</a>
         </div>
       </div>
     </form>

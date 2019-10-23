@@ -16,4 +16,6 @@ return [
     'home' => 'Home',
     'category' => 'Category',
     'register' => 'Register',
+    'profile' => 'Profile',
+
 ];

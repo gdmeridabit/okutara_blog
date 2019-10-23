@@ -28,7 +28,7 @@ class CategoriesController extends Controller
         return view('category', ['categories' => $categories]);
     }
 
-    public function list($id)
+    public function listIndex($id)
     {
         $category = Categories::where('id', $id)->get();
         return view('post_list',['category' => $category]);
