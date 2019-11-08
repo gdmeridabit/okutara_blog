@@ -39,9 +39,7 @@
 			<div class="col-sm-4">
 				<label class="blog-create__label" for="url">Upload image or video</label>
 				<input type="file" class="form-control-file" id="fileToUpload" name="fileToUpload">
-				<small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of
-				image should
-				not be more than 10MB.
+				<small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 10MB.
 				</small>
 				@error('fileToUpload')
 				<span class="text-danger">{{ $message }}</span>
@@ -64,7 +62,7 @@
 			<label class="blog-create__label" for="url">Category</label><br/>
 			<div class="row justify-content-center">
 			@foreach ($categories as $data)
-			<div class="col-3">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<input type="checkbox" name="categories[]" value="{{ $data->id }}"> {{ $data->name }}<br>
 			</div>
 			@endforeach

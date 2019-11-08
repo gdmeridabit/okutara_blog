@@ -1,7 +1,8 @@
 @extends('layouts.auth')
 
 @section('content')
-  <div class="d-flex justify-content-center text-center py-5">
+  <div class="d-flex justify-content-center text-center py-5"
+    style="height: 100vh">
     <div class="form-block-container">
       <div class="text-left">
         <a href="/"><i class="fas fa-arrow-left"></i>　<span>Go back to Home</span></a>

@@ -24,33 +24,33 @@
         </div>
         @endif
         <div class="row mt-3">
-            <div class="col-sm-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="container dashboard-content">
                     <h5>ACCOUNT INFORMATION</h5>
                     <hr/>
                     <div class="row">
-                        <div class="col-sm-4 text-right font-weight-bold">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 font-weight-bold">
                             Name
                         </div>
-                        <div class="col-sm-8 text-truncate">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-truncate">
                             {{ Auth::user()->name }}
                         </div>
-                        <div class="col-sm-4 text-right font-weight-bold">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 font-weight-bold">
                             Username
                         </div>
-                        <div class="col-sm-8 text-truncate">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-truncate">
                             {{ Auth::user()->username }}
                         </div>
-                        <div class="col-sm-4 text-right font-weight-bold">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 font-weight-bold">
                             Email
                         </div>
-                        <div class="col-sm-8 text-truncate">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-truncate">
                             {{ Auth::user()->email }}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <div class="container dashboard-blogs">
                     <div style="padding: 20px">
                         <h5>BLOGS</h5>
