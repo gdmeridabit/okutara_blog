@@ -39,13 +39,26 @@
     </a>
     @endforeach
     <div class="d-flex flex-row my-5">
-        <div class="col-md-12">
+        <div class="col-md-2">
+            
+        </div> 
+        <div class="col-md-4">
+            <a class="btn featured-seemore" href="{{ route('categories', ['locale' => App::getLocale()]) }}">
+                See More
+                <span style="color: rgb(27, 27, 27)">Okutama attractions</span>
+                <i class="fas fa-caret-right"></i>
+            </a>
+        </div> 
+        <div class="col-md-4">
             <a class="btn featured-share" href="{{ route('create', ['locale' => App::getLocale()]) }}">
                 Share your
                 <span style="color: rgb(27, 27, 27)">Okutama experience</span>
                 <i class="fas fa-caret-right"></i>
             </a>
         </div>
+        <div class="col-md-2">
+            
+        </div> 
     </div>
     <div style="background-color: white; padding-bottom: 30px">
         <div class="my-5 pt-5">
@@ -58,26 +71,8 @@
                 <img src="{{asset('img/okutara_black.png')}}" class="img-fluid"/>
             </div>
             <div class="col-md-9">
-                <p style="text-align:left;" class="lead">
-                    As international students of Okutama Japanese Language School, we had the privilege to live
-                    and
-                    experience Okutama in a span of one and a half year. Originally coming from overseas, we had
-                    had
-                    no idea that a countryside like Okutama exists within Tokyo until we saw it ourselves.
-                    During
-                    our stay, we were able to interact with the locals and be personally involved in the
-                    activities
-                    of Okutama. This opportunity made us appreciate the beauty of Okutama and its culture even
-                    more.
-                    We believe that for travellers eyeing for a unique experience in Tokyo, Okutama is
-                    definitely a
-                    must visit.
-                    <br/> <br/>
-                    Through Okutara, we aim to share our own experience in Okutama through blogs/vlogs so that
-                    people from overseas can vividly see the beauty of Okutama the way we see it. As students,
-                    we
-                    would like to contribute to the promotion of Okutama in the hopes that people would possibly
-                    plan their own trip to Okutama.
+                <p style="text-align:left;">
+                @lang('home.about_us')
                 </p>
             </div>
         </div>
