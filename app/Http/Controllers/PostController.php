@@ -208,7 +208,7 @@ class PostController extends Controller
             if ($name !== '') {
                 Storage::delete($file);
                 Storage::disk('local')->putFileAs(
-                    '/public/files/',
+                    'public/files/',
                     $files,
                     $name
                 );
