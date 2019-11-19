@@ -183,6 +183,7 @@ class PostController extends Controller
      */
     public function update(Request $request)
     {
+        Log::debug('[CHECK FOR UPDATE] ');
         $this->validateUpdateForm($request);
         $post = Posts::find($request->id);
         $file = $post->filename;
@@ -200,11 +201,13 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->user_id = $user->id;
         $post->link = is_null($request->link) ? '' : $request->link;
+        Log::debug('[SAVING UPDATE] ');
         $result = $post->save();
-
+        Log::debug('[GETTING UPDATE RESULT] ');
         if (!$result) {
             return back()->with('create_failed', 'Opps! something went wrong');
         } else {
+            Log::debug('[REMOVE AND CHANGE IMAGE] ');
             if ($name !== '') {
                 Storage::delete($file);
                 Storage::disk('local')->putFileAs(
@@ -214,7 +217,7 @@ class PostController extends Controller
                 );
             }
             $post->categories()->sync($request->categories);
-
+            Log::debug('[DONE UPDATING] ');
             return redirect()->route('dashboard');
         }
     }

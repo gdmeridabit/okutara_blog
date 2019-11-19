@@ -29,7 +29,7 @@ Route::get('/post/{id}', 'PostController@postListIndex')->name('post-list');
 
 Route::post('/create', 'PostController@create')->middleware('auth');
 
-Route::put('/post/updated', 'PostController@update')->middleware('auth');
+Route::put('/post/update', 'PostController@update')->middleware('auth');
 
 Route::get('/like/{id}', 'PostController@like')->middleware('auth');
 

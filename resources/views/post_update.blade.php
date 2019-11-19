@@ -25,7 +25,7 @@
 	</div>
 	@endif
 	<div class="d-flex flex-column justify-content-center">
-		<form action="/post/updated/" enctype="multipart/form-data" method="POST">
+		<form action="/post/update" enctype="multipart/form-data" method="POST">
 		@csrf
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
