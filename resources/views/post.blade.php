@@ -12,7 +12,7 @@
         <div class="d-flex">
             <h6 class="mb-4 mx-3">
 				<span class="font-weight-normal">
-					<i class="fas fa-pencil-alt pr-1"></i> 
+					<i class="fas fa-pencil-alt pr-1"></i>
 					{{ $post->user->name }}</span> | <span class="font-weight-light">{{ $post->created_at }}
 				</span>
             </h6>
@@ -37,6 +37,7 @@
                     class="fas fa-thumbs-up mr-1"></i> {{ count($post->likes) }} Liked </span>
             @endif
         </div>
+        @endif
         <div class="d-flex my-3">
             <a href="{{ $post->getShareUrl('facebook') }}" target="_blank"
                class="btn btn-outline-secondary btn-sm mx-1">
@@ -46,7 +47,6 @@
                 <i class="fab fa-twitter mr-1"></i> Share on Twitter
             </a>
         </div>
-        @endif
     </div>
 </div>
 </div>
