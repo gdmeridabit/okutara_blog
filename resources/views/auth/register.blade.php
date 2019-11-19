@@ -17,7 +17,7 @@
       <div class="form-block-logo">
         <img src="{{ asset('img/logo1_black.png') }}">
       </div>
-      <form method="POST" action="{{ route('register', ['locale' => App::getLocale()]) }}">
+      <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form-group row">
             <div class="col-md-12">
@@ -76,7 +76,7 @@
                 </button>
             </div>
             <div class="col-md-12">
-                <a class="nav-link" href="{{ route('login', ['locale' => App::getLocale()]) }}">Already have an account? Login now!</a>
+                <a class="nav-link" href="{{ route('login') }}">Already have an account? Login now!</a>
             </div>
         </div>
         </form>
