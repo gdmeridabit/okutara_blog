@@ -60,11 +60,11 @@
                       <a class="nav-link" href="/"><i class="fas fa-info-circle pr-2"></i> About</a>
                     </!-->
                     <li>
-                        <a class="nav-link" href="{{ route('categories', ['locale' => App::getLocale()]) }}"><i class="fas fa-list-ul pr-2"></i>
+                        <a class="nav-link" href="{{ route('categories') }}"><i class="fas fa-list-ul pr-2"></i>
                             @lang('nav.category')</a>
                     </li>
                 </ul>
-                <a class="navbar-brand" href="{{ url('/' . app()->getLocale()) }}" >
+                <a class="navbar-brand" href="{{ url('/') }}" >
                     <img src="{{ asset('img/logo1_white.png') }}" style="height: 50px;"/>
                 </a>
                 <!-- Right Side Of Navbar -->
@@ -72,16 +72,16 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register', ['locale' => App::getLocale()]) }}">@lang('nav.register')</a>
+                        <a class="nav-link" href="{{ route('register') }}">@lang('nav.register')</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="btn btn-user" href="{{ route('login', ['locale' => App::getLocale()]) }}">@lang('auth.login')</a>
+                        <a class="btn btn-user" href="{{ route('login') }}">@lang('auth.login')</a>
                     </li>
                     @endif
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('create', ['locale' => App::getLocale()]) }}"><i class="fas fa-pen-fancy pr-2"></i> Add New
+                        <a class="nav-link" href="{{ route('create') }}"><i class="fas fa-pen-fancy pr-2"></i> Add New
                             Post</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -91,16 +91,16 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('dashboard', ['locale' => App::getLocale()]) }}">
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">
                                 <i class="fas fa-user-alt mr-2"></i> @lang('nav.profile')
                             </a>
-                            <a class="dropdown-item" href="{{ route('logout', ['locale' => App::getLocale()]) }}"
+                            <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
                                 <i class="fas fa-sign-out-alt mr-2"></i> @lang('auth.logout')
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout', ['locale' => App::getLocale()]) }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         </div>

@@ -10,7 +10,7 @@
 		<div class="row">
 		@foreach($categories as $data)
 		<div class="col-4 categories-card">
-			<a href="{{ route('categorize-post', ['locale' => App::getLocale(), 'id' => $data->id]) }}">
+			<a href="{{ route('categorize-post', ['id' => $data->id]) }}">
 				<div class="card categories-link">
 					<div class="card-body text-center py-5 my-4"
 						style="height: 200px;">

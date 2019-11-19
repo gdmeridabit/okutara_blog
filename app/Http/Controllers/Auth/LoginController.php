@@ -38,9 +38,9 @@ class LoginController extends Controller
     {
         $user = Auth::user();
         if ($user->is_admin) {
-            return '/'. app()->getLocale() . '/admin';
+            return '/'. '/admin';
         } else {
-            return '/'. app()->getLocale() . '/dashboard/' . $user->url;
+            return '/dashboard/' . $user->url;
         }
     }
     /**

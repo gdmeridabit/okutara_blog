@@ -11,30 +11,21 @@
 |
 */
 
-Route::group([
-    'prefix' => '{locale}',
-    'where' => ['locale' => '[a-zA-Z]{2}'],
-    'middleware' => 'setlocale'], function() {
+Route::get('/', 'BaseController@index')->name('home');
 
-    Route::get('/', 'BaseController@index')->name('home');
+Auth::routes();
 
-    Auth::routes();
+Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
 
-    Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
+Route::get('/create-post', 'PostController@index')->name('create')->middleware('auth');
 
-    Route::get('/create-post', 'PostController@index')->name('create')->middleware('auth');
+Route::get('/post/update/{id}', 'PostController@updateIndex')->name('update')->middleware('auth');
 
-    Route::get('/post/update/{id}', 'PostController@updateIndex')->middleware('auth');
+Route::get('/categories', 'CategoriesController@index')->name('categories');
 
-    Route::get('/categories', 'CategoriesController@index')->name('categories');
+Route::get('/category/{id}', 'CategoriesController@listIndex')->name('categorize-post');
 
-    Route::get('/category/{id}', 'CategoriesController@listIndex')->name('categorize-post');
-
-    Route::get('/post/{id}', 'PostController@postListIndex')->name('post-list');
-});
-
-//GUEST
-Route::permanentRedirect('/', '/en');
+Route::get('/post/{id}', 'PostController@postListIndex')->name('post-list');
 
 Route::post('/create', 'PostController@create')->middleware('auth');
 

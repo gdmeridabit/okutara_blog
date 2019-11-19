@@ -19,9 +19,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($locale)
+    public function index()
     {
-        app()->setLocale($locale);
         $categories = Categories::all();
         return view('post_create', ['categories' => $categories]);
     }
@@ -95,9 +94,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function postListIndex($id, $locale)
+    public function postListIndex($id)
     {
-        app()->setLocale($locale);
         $post = Posts::find($id);
         $like = null;
         if (Auth::check()) {
@@ -166,18 +164,16 @@ class PostController extends Controller
         return back()->with(['post' => $post, 'isLiked' => $isLike]);
     }
 
-    public function updateIndex($id, $locale)
+    public function updateIndex($id)
     {
-        app()->setLocale($locale);
         try {
             $post = Posts::find($id);
             $categories = Categories::all();
-            Log::debug($post->categories);
             return view('post_update', ['post' => $post, 'categories' => $categories]);
         } catch (\Exception $e) {
+            Log::debug($e);
             abort(404);
         }
-
     }
 
     /**

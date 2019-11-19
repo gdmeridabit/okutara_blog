@@ -60,7 +60,7 @@
 				@error('link')
 				<span class="text-danger">{{ $message }}</span>
 				@enderror
-			</div>		
+			</div>
 			</div>
 		</div>
 		<div class="form-group">
@@ -68,7 +68,7 @@
 			<div class="row justify-content-center">
 			@foreach ($categories as $data)
 			<div class="col-3">
-				<input type="checkbox" name="categories[]" value="{{ $data->id }}" {{ ($post->categories->contains($data->id)) ? 'checked="checked" ' : '' }} > {{ $data->name }}<br>
+				<input type="checkbox" name="categories[]" value="{{ $data->id }}" {{ ($post->categories->contains($data->id)) ? 'checked="checked" ' : '' }}> {{ $data->name }}<br/>
 			</div>
 			@endforeach
 			</div>
@@ -76,7 +76,7 @@
 		<!-- Create the editor container -->
 		<div class="form-group blog-form">
 			<label class="blog-create__label" for="description">Description</label><br/>
-			<textarea class="form-control tinymce" name="description"></textarea>
+			<textarea class="form-control tinymce" name="description">{{ $post->description }}</textarea>
 			<small class="form-text text-muted">Write a short description about your post</small>
 			@error('description')
 			<span class="text-danger">{{ $message }}</span>
