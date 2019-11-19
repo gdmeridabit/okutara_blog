@@ -183,7 +183,7 @@ class PostController extends Controller
      */
     public function update(Request $request)
     {
-        $this->validateForm($request);
+        $this->validateUpdateForm($request);
         $post = Posts::find($request->id);
         $file = $post->filename;
         $user = Auth::user();
@@ -192,8 +192,11 @@ class PostController extends Controller
             $name = $request->username . date("Ymdhis") . '.' . $files->getClientOriginalExtension();
         }
 
+        Log::debug('[CHECK NAME]: ' . $name);
+        Log::debug('[CHECK FILE]: ' . $file);
+
         $post->title = $request->title;
-        $post->filename = $file === $name ? $file : $name;
+        $post->filename = $name === '' ? $file : $name;
         $post->description = $request->description;
         $post->user_id = $user->id;
         $post->link = is_null($request->link) ? '' : $request->link;
@@ -202,16 +205,35 @@ class PostController extends Controller
         if (!$result) {
             return back()->with('create_failed', 'Opps! something went wrong');
         } else {
-            if ($file != $name) {
+            if ($name !== '') {
                 Storage::delete($file);
+                Storage::disk('local')->putFileAs(
+                    '/public/files/',
+                    $files,
+                    $name
+                );
             }
             $post->categories()->sync($request->categories);
-            Storage::disk('local')->putFileAs(
-                'public/files/',
-                $files,
-                $name
-            );
+
             return redirect()->route('dashboard');
         }
+    }
+
+    /**
+     * Input validations
+     *
+     * @param Request $request
+     * @return ValidationException
+     */
+    public function validateUpdateForm(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|max:150',
+            'description' => 'required',
+            'fileToUpload' => 'file|image|max:100000',
+            'link' => ['nullable','regex:/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/']
+        ]);
+
+        return $validatedData;
     }
 }
