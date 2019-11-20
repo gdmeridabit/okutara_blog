@@ -9,7 +9,7 @@
     <div class="row">
       @foreach($category as $data)
         @foreach($data->posts as $post)
-        <div class="col-4">
+        <div class="pl-0 col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <a href="{{ route('post-list',['id' => $post->id]) }}" class="card-link">
             <div class="card ml-2 mb-2 list" style="width: 100%; height: 460px">
               <div style="height: 220px; width: 100%">

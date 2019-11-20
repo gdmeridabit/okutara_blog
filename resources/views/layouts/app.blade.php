@@ -53,13 +53,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/"><i class="fas fa-home pr-2"></i>@lang('nav.home')</a>
                     </li>
                     <!-- <li>
                       <a class="nav-link" href="/"><i class="fas fa-info-circle pr-2"></i> About</a>
                     </!-->
-                    <li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('categories') }}"><i class="fas fa-list-ul pr-2"></i>
                             @lang('nav.category')</a>
                     </li>

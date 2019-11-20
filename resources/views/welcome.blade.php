@@ -66,20 +66,20 @@
             <span class="font-weight-bold">About</span><span class="font-weight-light">Us</span>
         </span>
         </div>
-        <div class="d-flex flex-row px-5">
-            <div class="col-md-3">
+        <div class="row px-5">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <img src="{{asset('img/okutara_black.png')}}" class="img-fluid"/>
             </div>
-            <div class="col-md-9">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 mt-3">
                 <p style="text-align:left;">
                 @lang('home.about_us')
                 </p>
             </div>
         </div>
-        <div class="d-flex flex-row my-5">
+        <div class="row my-5">
             <div class="col-md-8 offset-md-2">
-                <div class="d-flex flex-row text-center">
-                    <div class="col-md-4">
+                <div class="row text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <img src="{{asset('img/gwen_pic.jpg')}}" class="rounded-circle mx-auto d-block"
                              style="width:200px">
                         <br/>
@@ -87,7 +87,7 @@
                         <br/>
                         Software Developer
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <img src="{{asset('img/jp_pic.jpg')}}" class="rounded-circle mx-auto d-block"
                              style="width:200px">
                         <br/>
@@ -95,7 +95,7 @@
                         <br/>
                         UX Designer / Content Director
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <img src="{{asset('img/mica_pic.jpg')}}" class="rounded-circle mx-auto d-block"
                              style="width:200px">
                         <br/>

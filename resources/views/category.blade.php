@@ -9,7 +9,7 @@
 		</div>
 		<div class="row">
 		@foreach($categories as $data)
-		<div class="col-4 categories-card">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 categories-card">
 			<a href="{{ route('categorize-post', ['id' => $data->id]) }}">
 				<div class="card categories-link">
 					<div class="card-body text-center py-5 my-4"
