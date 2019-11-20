@@ -14,7 +14,6 @@
 </div>
 @if(isset($posts))
 <div class="justify-content-center text-center">
-<a href="/post/{{ $item->id}}" class="card-link title-card" >
     <div class="my-5 pt-5">
     <span class="featured-title">
       <span class="font-weight-bold">Featured</span><span class="font-weight-light">Blogs</span>
@@ -112,4 +111,3 @@
 
 @endif
 @endsection
-
