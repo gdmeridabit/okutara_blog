@@ -16735,7 +16735,7 @@ a:hover {
 .navbar {
   height: 95px;
   font-weight: 400;
-  width: 100%;
+  width: 100vw;
   background: rgba(0, 0, 0, 0.5);
 }
 

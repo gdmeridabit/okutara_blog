@@ -41,7 +41,6 @@ class PostController extends Controller
             $name = $request->username . date("Ymdhis") . '.' . $files->getClientOriginalExtension();
         }
 
-        $this->embedYoutube($request->link);
         $post->title = $request->title;
         $post->filename = $name;
         $post->description = $request->description;

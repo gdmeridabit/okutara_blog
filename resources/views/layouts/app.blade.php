@@ -43,6 +43,7 @@
 <body>
 <div id="app">
     <nav class="navbar fixed-top navbar-expand-md navbar-dark shadow-sm">
+        <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -113,6 +114,7 @@
                     </li>
                     @endforeach -->
                 </ul>
+            </div>
         </div>
     </nav>
     <main style="min-height: 80vh">
