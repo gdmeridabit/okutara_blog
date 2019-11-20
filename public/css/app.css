@@ -16696,16 +16696,33 @@ a:hover {
 .featured-share {
   background: linear-gradient(90deg, #48c23a 0%, #7fe97b 100%);
   border-radius: 50px;
-  padding: 20px 40px;
+  padding: 30px 40px;
   font-weight: 900;
   height: 90px;
   font-family: "Kalam", cursive;
   border: none;
-  font-size: 30px !important;
+  font-size: 22px !important;
+  color: #fff !important;
+}
+
+.featured-seemore {
+  background: linear-gradient(90deg, #4175be 0%, #97b6ed 100%);
+  border-radius: 50px;
+  padding: 30px 40px;
+  font-weight: 900;
+  height: 90px;
+  font-family: "Kalam", cursive;
+  border: none;
+  font-size: 22px !important;
   color: #fff !important;
 }
 
 .featured-share:hover {
+  box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+  transition: all 200ms ease-in;
+}
+
+.featured-seemore:hover {
   box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
   transition: all 200ms ease-in;
 }

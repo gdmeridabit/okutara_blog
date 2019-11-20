@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Log;
 
 class BaseController extends Controller
 {
-    public function index($locale) {
-        app()->setLocale($locale);
+    public function index() {
         $posts = Posts::withCount('likes')
             ->orderBy('likes_count', 'desc')
             ->take(3)

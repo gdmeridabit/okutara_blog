@@ -36,11 +36,11 @@ class HomeController extends Controller
     public function deletePost($id)
     {
         $post = Posts::find($id);
-        Storage::delete($post->filename);
-        unlink(storage_path('app/public/files/'.$post->filename));
         if (!$post->delete()) {
             return back()->with('delete_failed', 'Opps! something went wrong');
         } else {
+            Storage::delete($post->filename);
+            unlink(storage_path('app/public/files/'.$post->filename));
             return back()->with('delete_success', 'Successfully deleted a post!');
         }
     }

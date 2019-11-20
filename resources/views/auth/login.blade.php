@@ -10,12 +10,12 @@
     <div class="form-block-logo">
         <img src="{{ asset('img/logo1_black.png') }}">
     </div>
-    <form method="POST" action="{{ route('login', ['locale' => App::getLocale()]) }}">
+    <form method="POST" action="{{ route('login') }}">
       @csrf
       <div class="form-group row">
         <div class="col-md-12">
           <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
-            name="username" value="{{ old('username') }}" autocomplete="username" autofocus maxlength="20"
+            name="username" value="{{ old('username') }}" autocomplete="username" autofocus maxlength="50"
             placeholder="Username">
             @if ($errors->has('username'))
             <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
           </button>
         </div>
         <div class="col-md-12">
-          <a class="nav-link" href="{{ route('register', ['locale' => App::getLocale()]) }}">@lang('auth.sign_in')</a>
+          <a class="nav-link" href="{{ route('register') }}">@lang('auth.sign_in')</a>
         </div>
       </div>
     </form>

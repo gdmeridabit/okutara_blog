@@ -14,7 +14,7 @@ return [
     */
 
     'home' => 'Home',
-    'category' => 'Category',
+    'category' => 'Attractions',
     'register' => 'Register',
     'profile' => 'Profile',
 

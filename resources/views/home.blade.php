@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <div class="dashboard-actions">
-                                            <a class="btn btn-light" href="{{ url('/post/update/' . $post->id) }}" ><i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-light" href="{{ route('update', ['id' => $post->id]) }}" ><i class="fas fa-edit"></i></a>
                                             <a class="btn btn-light" href="{{ url('/dashboard/' . $post->id) }}" ><i class="fas fa-trash-alt"></i></a>
                                         </div>
                                         <div style="width: 80%">

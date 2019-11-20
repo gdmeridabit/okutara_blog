@@ -19,9 +19,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($locale)
+    public function index()
     {
-        app()->setLocale($locale);
         $categories = Categories::all();
         return view('post_create', ['categories' => $categories]);
     }
@@ -95,9 +94,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function postListIndex($id, $locale)
+    public function postListIndex($id)
     {
-        app()->setLocale($locale);
         $post = Posts::find($id);
         $like = null;
         if (Auth::check()) {
@@ -166,18 +164,16 @@ class PostController extends Controller
         return back()->with(['post' => $post, 'isLiked' => $isLike]);
     }
 
-    public function updateIndex($id, $locale)
+    public function updateIndex($id)
     {
-        app()->setLocale($locale);
         try {
             $post = Posts::find($id);
             $categories = Categories::all();
-            Log::debug($post->categories);
             return view('post_update', ['post' => $post, 'categories' => $categories]);
         } catch (\Exception $e) {
+            Log::debug($e);
             abort(404);
         }
-
     }
 
     /**
@@ -187,7 +183,8 @@ class PostController extends Controller
      */
     public function update(Request $request)
     {
-        $this->validateForm($request);
+        Log::debug('[CHECK FOR UPDATE] ');
+        $this->validateUpdateForm($request);
         $post = Posts::find($request->id);
         $file = $post->filename;
         $user = Auth::user();
@@ -196,26 +193,50 @@ class PostController extends Controller
             $name = $request->username . date("Ymdhis") . '.' . $files->getClientOriginalExtension();
         }
 
+        Log::debug('[CHECK NAME]: ' . $name);
+        Log::debug('[CHECK FILE]: ' . $file);
+
         $post->title = $request->title;
-        $post->filename = $file === $name ? $file : $name;
+        $post->filename = $name === '' ? $file : $name;
         $post->description = $request->description;
         $post->user_id = $user->id;
         $post->link = is_null($request->link) ? '' : $request->link;
+        Log::debug('[SAVING UPDATE] ');
         $result = $post->save();
-
+        Log::debug('[GETTING UPDATE RESULT] ');
         if (!$result) {
             return back()->with('create_failed', 'Opps! something went wrong');
         } else {
-            if ($file != $name) {
+            Log::debug('[REMOVE AND CHANGE IMAGE] ');
+            if ($name !== '') {
                 Storage::delete($file);
+                Storage::disk('local')->putFileAs(
+                    'public/files/',
+                    $files,
+                    $name
+                );
             }
             $post->categories()->sync($request->categories);
-            Storage::disk('local')->putFileAs(
-                'public/files/',
-                $files,
-                $name
-            );
+            Log::debug('[DONE UPDATING] ');
             return redirect()->route('dashboard');
         }
+    }
+
+    /**
+     * Input validations
+     *
+     * @param Request $request
+     * @return ValidationException
+     */
+    public function validateUpdateForm(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|max:150',
+            'description' => 'required',
+            'fileToUpload' => 'file|image|max:100000',
+            'link' => ['nullable','regex:/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/']
+        ]);
+
+        return $validatedData;
     }
 }
