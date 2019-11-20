@@ -20,7 +20,7 @@
     </span>
     </div>
     @foreach($posts as $item)
-    <a href="/post/{{ $item->id}}" class="card-link title-card">
+    <a href="/post/{{ $item->id}}">
         <div class="card featured-blog" style="">
             <div class="d-flex flex-row featured-container"
                  style="background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 1) 290px), url({{asset('storage/files/'. $item->filename)}}) center center no-repeat; background-size: cover">
