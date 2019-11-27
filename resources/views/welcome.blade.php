@@ -38,25 +38,22 @@
         </div>
     </a>
     @endforeach
-    <div class="d-flex flex-row my-5">
-        <div class="col-md-2">
-
+    <div class="row my-5">
+        <div class="col-sm-0 col-md-2">
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-12 col-md-4">
             <a class="btn featured-seemore" href="{{ route('categories') }}">
                 See More
                 <span style="color: rgb(27, 27, 27)">Okutama attractions</span>
-                <i class="fas fa-caret-right"></i>
             </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-12 col-md-4">
             <a class="btn featured-share" href="{{ route('create') }}">
                 Share your
                 <span style="color: rgb(27, 27, 27)">Okutama experience</span>
-                <i class="fas fa-caret-right"></i>
             </a>
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-0 col-md-2">
 
         </div>
     </div>
