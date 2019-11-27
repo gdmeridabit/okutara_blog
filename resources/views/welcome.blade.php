@@ -63,7 +63,7 @@
             <span class="font-weight-bold">About</span><span class="font-weight-light">Us</span>
         </span>
         </div>
-        <div class="row px-5">
+        <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <img src="{{asset('img/okutara_black.png')}}" class="img-fluid"/>
             </div>
