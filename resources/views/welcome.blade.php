@@ -3,11 +3,16 @@
 @section('content')
 <div class="content" id="outer">
     <div class="home-top-video">
-        <video autoplay loop muted width="100%">
+        <video autoplay loop muted width="100%" style="height: 100vh !important; object-fit: cover;">
             <source src="{{asset('img/Okutara_home.mp4')}}" type="video/mp4"/>
         </video>
         <div class="home-text home-logo">
             <img src="{{asset('img/logo1_white.png')}}"/>
+        </div>
+        <div style="position: absolute; transform: translate(-50%, -50%); color: #fff; z-index: 10; left: 50%; top: 93%;">
+            <i class="fas fa-chevron-down mr-2"></i>
+            <br />
+            <span style="font-size: 10px; letter-spacing: 3px;">SCROLL DOWN</span>
         </div>
     </div>
 </div>
@@ -101,6 +106,18 @@
                         Frontend Developer
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: white; padding-bottom: 30px">
+        <div class="my-5 pt-5">
+        <span class="featured-title">
+            <span class="font-weight-bold">Contact</span><span class="font-weight-light">Us</span>
+        </span>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-8 offset-md-2">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScrpkxpXTI33ULPfpPkdZEralRrX5GnLtgpEeKvmNbvYqXUsw/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
     </div>
