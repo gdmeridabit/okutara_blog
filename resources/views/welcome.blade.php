@@ -117,7 +117,7 @@
         </div>
         <div class="row my-5">
             <div class="col-md-8 offset-md-2">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScrpkxpXTI33ULPfpPkdZEralRrX5GnLtgpEeKvmNbvYqXUsw/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScrpkxpXTI33ULPfpPkdZEralRrX5GnLtgpEeKvmNbvYqXUsw/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
     </div>
